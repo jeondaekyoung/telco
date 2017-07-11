@@ -1,5 +1,5 @@
 
-var rootPath = window.location.protocol + '//' +window.location.host + '/telco';
+
 
 $(document).ready(function(){
 	$('#login').click(function(){
@@ -23,6 +23,6 @@ var checkValue = function(){
 	}
 };
 
-var agree = function(){
+var agree = function(rootPath){
 	location.href=rootPath + "/views/user/agree.jsp";
 };

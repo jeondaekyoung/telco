@@ -23,14 +23,14 @@
                 <input type="text" name="user_id" id="user_id" placeholder="ID" title="ID">
             </div>
             <div>
-                <input type="password" name="user_pw" id="user_pw" placeholder="Password" title="password" onkeypress="if(event.keyCode == 13){ 함수명(); return; }">
+                <input type="password" name="user_pw" id="user_pw" placeholder="Password" title="password" />
             </div>
         </div>
 
         <div class="text btn">
             <!-- <a href="main_test.html"><input type="button" value="로그인"></a> -->
             <input type="button" value="로그인" id="login" >
-            <input type="button" value="회원가입" onclick="agree();">
+            <input type="button" value="회원가입" onclick="agree('${ctx }');">
         </div>
         </form>
     </div>
