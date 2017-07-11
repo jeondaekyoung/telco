@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.UserMapper">
+
+	<select id="searchSchool" parameterType="String" resultType="School">
+		SELECT school_no, school_name 
+		FROM school_tb
+		WHERE school_name = #{school_name}	
+	</select>
+	
+	<select id="searchUser" parameterType="String" resultType="User">
+		SELECT user_id,user_pw,user_name,email_address,grade,affiliation,ban,num,user_sepa,join_date,expiration_date,
+	               (SELECT school_tb.school_name FROM school_tb WHERE u.school_no = school_tb.school_no) AS school_name
+        FROM users_tb u
+        WHERE user_id = #{user_id}
+	</select>
+	
+	<insert id="join" parameterType="User">
+		INSERT INTO users_tb (user_id, user_pw, user_name, email_address, grade, affiliation, ban, num, user_sepa, join_date, school_no,charge_or)
+        VALUES (#{user_id}, #{user_pw}, #{user_name}, #{email_address}, #{grade}, #{affiliation}, #{ban}, #{num}, #{user_sepa}, curdate(), 
+                      (SELECT school_no FROM school_tb WHERE school_name = #{school_name}), #{charge_or})
+	</insert>
+
+	<insert id="registerAccess" parameterType="Access">
+		INSERT INTO access_tb (sequence_no,access_date,ip,device,user_id)
+		VALUES (#{sequence_no},NOW(),#{ip},#{device},#{user_id});
+	</insert>
+</mapper>

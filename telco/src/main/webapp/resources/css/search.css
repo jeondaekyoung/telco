@@ -1,0 +1,33 @@
+@CHARSET "utf-8";
+
+* { font-family:'맑은 고딕', 'malgun gothic', '돋움', 'Dotum'; list-style: none; color:#000; margin: 0; padding: 0; font-size: 12px;}
+
+
+
+
+a { text-decoration: none; cursor: pointer;}
+h1 {font-size:30px; text-align:center; padding: 10px 0 20px;}
+
+
+body {width:100%; }
+
+/* 테이블의 초기화 */
+table {border-collapse:collapse; border-spacing:0; font-style:normal;}
+caption {position: absolute; top:-9999px; font-size:0px; line-height:0px; width:0px; height:0px;}/* 장애인을 위한 caption 숨기기 */
+
+#container {width:100%}
+#content {width: 560px; margin:0 auto;}
+
+#content div p {padding: 20px 0 10px;}
+.search {}
+.search .searchBox {position: relative; overflow: hidden;}
+.searchBox input[type="text"] {padding: 12px 0; width: 100%; vertical-align:middle; text-indent: 5px; border:1px solid #00A9E0 }
+.searchBox input[type="button"] {padding: 13px 15px; border:none; background: #00A9E0; color: #fff; position:absolute; top:0; right:0; vertical-align:top;}
+
+.result div {height: 400px; overflow: auto;}
+.result table {width:100%;}
+.result table th {text-align: center; background: #F0F8FA}
+.result table tr td {text-align: center; }
+.result table tr td:last-child {text-align: left; cursor:pointer;}
+.result table th {padding: 15px 0; border-top: 1px solid #666;}
+.result table td {padding: 15px 0; border-top: 1px solid #ccc;}

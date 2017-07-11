@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.BankbookMapper">
+
+		
+	<select id="selectCustomer" parameterType="String" resultType="CustomerBasics">
+		SELECT customer_no, realname_num, realname_num_sepa, customer_qualf_sepa, customer_qualf_name
+					,customer_name, customer_name_eng, passport_num, nationality_sepa, postal_sepa, contact_sepa, bizrno, enterprise_name 
+		  FROM customer_basics_tb
+		WHERE realname_num = #{realname_num}
+	</select>
+	
+	<select id="selectAccountNum" resultType="String">
+		SELECT max(account_num) as account_num FROM bankbook_info_tb
+	</select>
+	
+	<insert id="insertBankbookInfo" parameterType="BankbookInfo" >
+		INSERT INTO bankbook_info_tb (
+							account_num
+							,certificate_num
+							,depositor_relation
+							,finance_sepa
+							,item_name
+							,sub_name ,sub_num
+							,bankbook_publish_sepa
+							,bankbook_pw ,bankbook_trade_pw
+							,balance
+							,management_point
+							,signet_sepa
+							,open_date
+							,customer_no) VALUES (
+							#{account_num}
+							,#{certificate_num}
+							,#{depositor_relation}
+							,#{finance_sepa}
+							,#{item_name}
+							,#{sub_name} ,#{sub_num}
+							,#{bankbook_publish_sepa}
+							,#{bankbook_pw} ,#{bankbook_trade_pw}
+							,#{balance}
+							,#{management_point}
+							,#{signet_sepa}
+							,curdate()
+							,#{customer_no})
+	</insert>
+	
+	<select id="selectTradeNo" resultType="String">
+		SELECT max(trade_no) as trade_no FROM bankbook_trade_tb
+	</select>
+	
+	<insert id="insertBankbookTrade" parameterType="BankbookTrade">
+		INSERT INTO bankbook_trade_tb (
+							trade_no
+							,account_num
+							,trade_datetime
+							,trade_sepa
+							<if test="currency_code != null">,currency_code</if>
+							,trade_amount
+							,trade_balance
+							,summary
+							,client_name
+							,management_point
+							<if test="print_or != null">,print_or</if>
+							,connect_trade_no ) VALUES (
+							#{trade_no}
+							,#{account_num}
+							,now()
+							,#{trade_sepa}
+							<if test="currency_code != null">,#{currency_code}</if>
+							,#{trade_amount}
+							,#{trade_balance}
+							,#{summary}
+							,#{client_name}
+							,#{management_point}
+							<if test="print_or != null">,#{print_or}</if>
+							,#{connect_trade_no} )
+	</insert>
+	
+	<select id="selectTradeDetailNo" resultType="String">
+		SELECT max(trade_detail_no) as trade_detail_no FROM bankbook_trade_detail_tb
+	</select>
+	
+	<insert id="insertBankbookTradeDetail" parameterType="BankbookTradeDetail">
+		INSERT INTO bankbook_trade_detail_tb (
+							trade_detail_no
+							,trade_no
+							,cash
+							,check_alternative
+							,bank_alternative  ) VALUES (
+							#{trade_detail_no}
+							,#{trade_no}
+							,#{cash}
+							,#{check_alternative}
+							,#{bank_alternative} )
+	</insert>
+	
+	<insert id="insertEtcAntiMoney" parameterType="EtcAntiMoney">
+		INSERT INTO etc_anti_money_laundering_tb (
+							account_num
+							,capital_origin_sepa
+							,trade_goal_sepa
+							,pay_day
+							,summary ) VALUES (
+							#{account_num}
+							,#{capital_origin_sepa}
+							,#{trade_goal_sepa}
+							,#{pay_day}
+							,#{summary} )
+	</insert>
+	
+	<select id="selectBankbookInfo" parameterType="String" resultType="BankbookInfo">
+		SELECT account_num, certificate_num, depositor_relation, finance_sepa, item_name, sub_name, sub_num
+					, bankbook_publish_sepa, bankbook_pw, bankbook_trade_pw, balance, management_point
+					, bankbook_publish_num, signet_sepa, using_or, open_date, cancel_date
+					, cancel_message, cancel_why_sepa, cancel_summary, customer_no
+		  FROM bankbook_info_tb
+		WHERE	account_num = #{account_num}
+		    AND using_or = 'Y'
+	</select>
+	
+	<select id="selectCustomerByCustomerNo" parameterType="String" resultType="CustomerBasics">
+		SELECT customer_no, realname_num, realname_num_sepa, customer_qualf_sepa, customer_qualf_name
+					, customer_name, customer_name_eng, passport_num, nationality_sepa, postal_sepa, contact_sepa
+					, bizrno, enterprise_name 
+		  FROM customer_basics_tb
+		WHERE customer_no = #{customer_no}
+	</select>
+	
+	<update id="updateBankbookInfo" parameterType="BankbookInfo">
+		UPDATE bankbook_info_tb
+		<set>
+			<if test="certificate_num != null">certificate_num = #{certificate_num}</if>
+			<if test="finance_sepa != null">,finance_sepa = #{finance_sepa}</if>
+			<if test="item_name != null">,item_name = #{item_name}</if>
+			<if test="bankbook_publish_sepa != null">,bankbook_publish_sepa = #{bankbook_publish_sepa}</if>
+			<if test="bankbook_pw != null">,bankbook_pw = #{bankbook_pw}</if>
+			<if test="bankbook_trade_pw != null">,bankbook_trade_pw = #{bankbook_trade_pw}</if>
+			<if test="bankbook_publish_num != null">,bankbook_publish_num = #{bankbook_publish_num}</if>
+			<if test="signet_sepa != null">,signet_sepa = #{signet_sepa}</if>
+			<if test="using_or != null">,using_or = #{using_or}</if>
+			<if test="cancel_message != null">,cancel_date = curdate()</if>
+			<if test="cancel_message != null">,cancel_message = #{cancel_message}</if>
+			<if test="cancel_why_sepa != null">,cancel_why_sepa = #{cancel_why_sepa}</if>
+			<if test="cancel_summary != null">,cancel_summary = #{cancel_summary}</if>
+			<if test="balance != null != null">,balance = #{balance}</if>
+		</set> 
+		 WHERE account_num = #{account_num}
+	</update>
+	
+	<insert id="insertRcpmnyDetail" parameterType="RcpmnyDetail">
+		INSERT INTO rcpmny_detail_tb (
+							trade_detail_no
+							,client_name
+							,client_num
+							,client_relation
+							,sub_name
+							,sub_num ) VALUES (
+							#{trade_detail_no}
+							,#{client_name}
+							,#{client_num}
+							,#{client_relation}
+							,#{sub_name}
+							,#{sub_num} )
+	</insert>
+	
+	<insert id="insertRcpmnyCheck" parameterType="RcpmnyCheck">
+		INSERT INTO rcpmny_check_tb (
+							trade_detail_no
+							,check_amount
+							,start_num
+							,number_of_sheet
+							,end_num
+							,giro_code ) VALUES (
+							#{trade_detail_no}
+							,#{check_amount}
+							,#{start_num}
+							,#{number_of_sheet}
+							,#{end_num}
+							,#{giro_code} )
+	</insert>
+	
+	<insert id="insertPymntCheck" parameterType="PymntCheck">
+		INSERT INTO pymnt_check_tb (
+							trade_detail_no
+							,check_no
+							,check_amount
+							,number_of_sheet) VALUES (
+							#{trade_detail_no}
+							,#{check_no}
+							,#{check_amount}
+							,#{number_of_sheet} )
+	</insert>
+	
+	<insert id="insertPymntBankTrade" parameterType="PymntBankTrade">
+		INSERT INTO pymnt_bank_trade_tb (
+							trade_detail_no
+							,amount
+							,account_num
+							,bank_name
+							,customer_name ) VALUES (
+							${trade_detail_no}
+							,#{amount}
+							,#{account_num}
+							,#{bank_name}
+							,#{customer_name} )
+	</insert>
+	
+	<select id="selectBankbookTrades" parameterType="String" resultType="BankbookTrade">
+		SELECT trade_no, account_num, trade_datetime, trade_sepa, currency_code, trade_amount, trade_balance
+					, ifnull(summary, '') as summary, ifnull(client_name, '') as client_name, ifnull(management_point, '') as management_point, print_or, connect_trade_no 
+          FROM bankbook_trade_tb
+        WHERE account_num = #{account_num}
+		ORDER BY trade_no DESC
+	</select>
+	
+	<insert id="insertBankbookReissue" parameterType="BankbookReissue">
+		INSERT INTO bankbook_reissue_tb (
+							account_num
+							,kind_sepa
+							,reissue_date
+							,bank_application_or
+							,loss_sepa
+							,summary
+							,fee_sepa
+							,receipt_or
+							,bankbook_sepa
+							,management_point ) VALUES (
+							#{account_num}
+							,#{kind_sepa}
+							,now()
+							,#{bank_application_or}
+							,#{loss_sepa}
+							,#{summary}
+							,#{fee_sepa}
+							,#{receipt_or}
+							,#{bankbook_sepa}
+							,#{management_point} )
+	</insert>
+</mapper>

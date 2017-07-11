@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'ngeot';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/NanumGothic.eot');
+  src: local('☺'), url('../font/NanumGothic.woff') format('woff'), url('../font/NanumGothic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ngeot';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../font/NanumGothicBold.eot');
+  src: local('☺'), url('../font/NanumGothicBold.woff') format('woff'), url('../font/NanumGothicBold.ttf') format('truetype'); 
+}
+*{margin: 0; padding: 0; color: #fff; font-family: ngeot}
+
+body{ width: 100%; height: 100%; background:url('../image/bg/bg_login.png')}
+
+#wrap{width: 400px; height: 420px; margin: 10% auto 0; border-radius: 10px;behavior : url(css/PIE-1.0.0/PIE.htc); border: 1px solid #fff;}
+#wrap1{min-width:360px; max-width:800px; margin: 10% auto 0; padding-bottom: 20px; border-radius: 10px;behavior : url(css/PIE-1.0.0/PIE.htc); border: 1px solid #fff;}
+#wrap2{width:360px; margin: 7% auto 0; padding-bottom: 20px; border-radius: 10px;behavior : url(css/PIE-1.0.0/PIE.htc); border: 1px solid #fff;}
+#wrap h1,
+#wrap1 h1{text-align: center; margin: 40px 0;}
+#wrap2 h1{text-align: center; margin: 40px 0;}
+#wrap1 textarea {width: 100%; height: 120px; color:#000; opacity: 0.8; margin-bottom: 20px}
+#wrap1 .btn1 {padding: 0 20px 20px}
+
+.birth input, .birth select{width: 30%!important; float: left; margin-right: 4px;}
+.birth select{width: 95%; padding: 9px 0; margin-bottom: 10px; background: #003366; opacity: 0.5; border: 5px solid #003366;}
+
+input {vertical-align: middle;}
+input[type="text"],
+input[type="password"] {width: 95%; padding: 10px 0; margin-bottom: 10px; background: #003366; opacity: 0.5; border: 5px solid #003366; }
+
+.text {position: relative}
+.text, .radio {width: 60%; margin: auto}
+.radio {width: 40%; margin: auto}
+.radio .input_study {float: left; margin-right: 25px;}
+
+label {margin: 0 0 0 2px; vertical-align: middle;}
+.text label.label_id {position: absolute; top:15px; left: 3px; font-size: 13px; letter-spacing: 0.1px}
+.text label.label_pw {position: absolute; top:70px; left: 3px; font-size: 13px; letter-spacing: 0.1px}
+
+.btn, .btn1 {margin-top: 20px;}
+.btn2 {padding-left: 10px;}
+.btn input {width: 100%; padding: 10px 0; margin-top:10px; background:#003366; border: none; cursor: pointer}
+.btn1 input[type="button"] {width: 100%; height: 90px; padding: 10px 0; margin-top:10px; background:#0A4153; border: none;}
+.btn2 input[type="button"] {width: 97%; height: 90px; padding: 10px 0; margin-top:10px; background:#0A4153; border: none;}
+input[type="button"]:hover{ opacity:0.7; cursor: pointer;}
+.btn2 input[type="radio"] {width: 20px; margin-left: 40px}
+
+.classInfo input{width: 29%; margin-top: 10px}
+.classInfo2 input{width: 20%; margin-top: 0px; margin-right: 4px}

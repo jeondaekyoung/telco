@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.CheckMapper">
+
+	<select id="selectCheckSeq" resultType="String">
+		SELECT max(check_seq) as check_seq 
+		  FROM check_no_tb
+	</select>
+	
+	<insert id="insertCheckNo" parameterType="CheckNo">
+		INSERT INTO check_no_tb ( 
+							check_seq
+							,check_no
+							,check_sepa
+							,number_of_sheet
+							,check_num
+							,print_or
+							,check_date
+							<if test="circulation_or != null">,circulation_or</if>
+							,user_id) VALUES (
+							#{check_seq}
+							,#{check_no}
+							,#{check_sepa}
+							,#{number_of_sheet}
+							,#{check_num}
+							,#{print_or}
+							,now()
+							<if test="circulation_or != null">,#{circulation_or}</if>
+							,#{user_id} )
+	</insert>
+	
+	<select id="selectCheckPublishNo" resultType="String">
+		SELECT max(check_publish_no) as check_publish_no
+		  FROM check_publish_tb	
+	</select>
+	
+	<insert id="insertCheckPublish" parameterType="CheckPublish">
+		INSERT INTO check_publish_tb (
+							check_publish_no
+							,cash ,alternative ,cashier_check
+							,cashier_nos
+							,client_relation
+							,client_realname_num
+							,client_name
+							,sub_num
+							,sub_name) VALUES (
+							#{check_publish_no}
+							,#{cash} ,#{alternative} ,#{cashier_check}
+							,#{cashier_nos}
+							,#{client_relation}
+							,#{client_realname_num}
+							,#{client_name}
+							,#{sub_num}
+							,#{sub_name} )
+	</insert>
+	
+	<insert id="insertCheckPublishDetail" parameterType="CheckPublishDetail">
+		INSERT INTO check_publish_detail_tb (
+							check_publish_no
+							<if test="check_no != null">,check_no</if>
+							,check_sepa
+							,number_of_sheet
+							<if test="start_num != null">,start_num </if>
+							) VALUES (
+							#{check_publish_no}
+							<if test="check_no != null">,#{check_no}</if>							
+							,#{check_sepa}
+							,#{number_of_sheet}
+							<if test="start_num != null">,#{start_num}</if>
+							 )
+	</insert>
+	
+	<select id="selectCheckPaymentNo" resultType="String">
+		SELECT max(check_payment_no) as check_payment_no
+		  FROM check_payment_tb
+	</select>
+	
+	<insert id="insertCheckPayment" parameterType="CheckPayment">
+		INSERT INTO check_payment_tb (
+							check_payment_no
+							,cash
+							,check_alternative
+							,bank_alternative
+							,client_relation
+							,client_realname_num
+							,sub_num
+							,sub_name
+							,client_name ) VALUES (
+							#{check_payment_no}
+							,#{cash}
+							,#{check_alternative}
+							,#{bank_alternative}
+							,#{client_relation}
+							,#{client_realname_num}
+							,#{sub_num}
+							,#{sub_name}
+							,#{client_name} )
+	</insert>
+	
+	<insert id="insertCheckPaymentCome" parameterType="CheckPaymentCome">
+		INSERT INTO check_payment_come_tb (
+							check_payment_no
+							,check_sepa
+							,number_of_sheet
+							,start_num
+							,giro_code ) VALUES (
+							#{check_payment_no}
+							,#{check_sepa}
+							,#{number_of_sheet}
+							,#{start_num}
+							,#{giro_code} )
+	</insert>
+	
+	<insert id="insertCheckPaymentPublish" parameterType="CheckPaymentPublish">
+		INSERT INTO check_payment_publish_tb (
+							check_payment_no
+							,check_no
+							,check_sepa
+							,number_of_sheet ) VALUES (
+							#{check_payment_no}
+							,#{check_no}
+							,#{check_sepa}
+							,#{number_of_sheet} ) 
+	</insert>
+	
+	<insert id="insertCheckPaymentBankTrade" parameterType="CheckPaymentBankTrade">
+		INSERT INTO check_payment_bank_trade_tb (
+							check_payment_no
+							,amount
+							,account_num
+							,bank_name
+							,customer_name ) VALUES (
+							#{check_payment_no}
+							,#{amount}
+							,#{account_num}
+							,#{bank_name}
+							,#{customer_name} )
+	</insert>
+	
+</mapper>

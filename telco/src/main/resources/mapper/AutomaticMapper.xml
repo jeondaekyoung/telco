@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.AutomaticMapper">
+
+	<parameterMap type="Map" id="selectAtcngs-terms">
+		<parameter property="busi_kind"/>
+		<parameter property="account_num"/>
+		<parameter property="using_or"/>
+	</parameterMap>
+
+	<insert id="insertAtcng" parameterType="Atcng">
+		INSERT INTO atcng_tb (
+							account_num
+							,withdrawal_pw
+							,atcng_amount
+							,app_day
+							,transfer_start
+							,transfer_day
+							,transfer_end
+							,busi_kind
+							<if test="using_or != null">,using_or</if>
+							,transfer_bank
+							,transfer_account_num
+							<if test="transfer_customer_name != null">,transfer_customer_name</if>
+							,transfer_interval
+							<if test="summary != null">,summary</if>
+							<if test="to_summary != null">,to_summary</if>
+							<if test="from_summary != null">,from_summary</if>
+							 ) VALUES (
+							#{account_num}
+							,#{withdrawal_pw}
+							,#{atcng_amount}
+							,curdate()
+							,#{transfer_start}
+							,#{transfer_day}
+							,#{transfer_end}
+							,#{busi_kind}
+							<if test="using_or != null">,#{using_or}</if>
+							,#{transfer_bank}
+							,#{transfer_account_num}
+							<if test="transfer_customer_name != null">,#{transfer_customer_name}</if>
+							,#{transfer_interval}
+							<if test="summary != null">,#{summary}</if>
+							<if test="to_summary != null">,#{to_summary}</if>
+							<if test="from_summary != null">,#{from_summary}</if>
+							)
+	</insert>
+	
+	<select id="selectAtcngs" parameterType="Map" resultType="Atcng">
+		SELECT seq_no, account_num, withdrawal_pw, atcng_amount, app_day, transfer_start, transfer_day, transfer_end, busi_kind
+					, if(using_or = 'Y', '사용중', '해지') as using_or, transfer_bank, transfer_account_num, transfer_customer_name, transfer_interval
+					, ifnull(summary, '') as summary, ifnull(to_summary, '') as to_summary, ifnull(from_summary, '') as from_summary 
+		  FROM atcng_tb
+		WHERE busi_kind = #{busi_kind}
+			AND account_num = #{account_num}
+			<if test="using_or != null">AND using_or = #{using_or}</if>
+		ORDER BY seq_no DESC
+	</select>
+	
+	<update id="cancelAtcng" parameterType="String">
+		UPDATE atcng_tb 
+			  SET using_or = 'N' 
+		 WHERE seq_no = #{seq_no}
+	</update>
+	
+	<select id="selectAtcng" parameterType="String" resultType="Atcng">
+		SELECT seq_no, account_num, withdrawal_pw, atcng_amount, app_day, transfer_start, transfer_day, transfer_end, busi_kind, using_or, transfer_bank, transfer_account_num, transfer_customer_name, transfer_interval, summary, to_summary, from_summary 
+		  FROM atcng_tb
+		WHERE seq_no = #{seq_no}
+	</select>
+	
+	<update id="updateAtcng" parameterType="Atcng">
+		UPDATE atcng_tb
+		      SET account_num = #{account_num}
+		        	,withdrawal_pw = #{withdrawal_pw}
+		        	,atcng_amount = #{atcng_amount}
+		        	,transfer_start = #{transfer_start}
+		        	,transfer_day = #{transfer_day}
+		        	,transfer_end = #{transfer_end}
+		        	,busi_kind = #{busi_kind}
+		        	,using_or = #{using_or}
+		        	,transfer_bank = #{transfer_bank}
+		        	,transfer_account_num = #{transfer_account_num}
+		        	,transfer_customer_name = #{transfer_customer_name}
+		        	,transfer_interval = #{transfer_interval}
+		        	,summary = #{summary}
+		        	,to_summary = #{to_summary}
+		        	,from_summary = #{from_summary} 
+		WHERE seq_no = #{seq_no}
+	</update>
+	
+</mapper>

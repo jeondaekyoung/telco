@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.CardMapper">
+
+	<select id="selectCustomerBankbooks" parameterType="String" resultType="BankbookInfo">
+		SELECT account_num, certificate_num, depositor_relation, finance_sepa, item_name
+					, sub_name, sub_num, bankbook_publish_sepa, bankbook_pw, bankbook_trade_pw
+					, balance, management_point, bankbook_publish_num, signet_sepa, using_or, open_date
+      				, cancel_date, cancel_message, cancel_why_sepa, cancel_summary, customer_no 
+		  FROM bankbook_info_tb
+		WHERE customer_no =  #{customer_no}
+		    AND using_or = 'Y'
+	</select>
+	
+	<insert id="insertCardDebit" parameterType="CardDebit">
+		INSERT INTO card_debit_tb (
+							dcard_num
+							,issue_date
+							,dcard_code
+							,dcard_issue_sepa
+							,dcard_pw
+							,dcard_use_sepa
+							,dcard_issue_place
+							,scrcmpn_code
+							,achlqr_bizrno
+							,school_code
+							,student_num
+							,barcode_num
+							,customer_no
+							,account_num) VALUES (
+							#{dcard_num}
+							,curdate()
+							,#{dcard_code}
+							,#{dcard_issue_sepa}
+							,#{dcard_pw}
+							,#{dcard_use_sepa}
+							,#{dcard_issue_place}
+							,#{scrcmpn_code}
+							,#{achlqr_bizrno}
+							,#{school_code}
+							,#{student_num}
+							,#{barcode_num}
+							,#{customer_no}
+							,#{account_num} )
+	</insert>
+	
+	<select id="selectCardDebitsByCustomerNo" parameterType="String" resultType="CardDebit">
+		SELECT card_seq, dcard_num, issue_date, case dcard_state when 'Y' then '사용중' when 'N' then '해지' end as dcard_state
+					,case dcard_code when '101' then '일반직불' when '102' then '제휴증권카드' when '103' then '주류구매카드' when '104' then '해외직불카드' when '105' then '학생증카드' end as dcard_code
+					,case dcard_issue_sepa when '01' then '우편발급' when '02' then '즉시발급' end as dcard_issue_sepa ,dcard_pw
+					,case dcard_use_sepa when '01' then '현금인출만 가능' when '02' then '가맹점이용만 가능' when '03' then '모두 이용가능' end as dcard_use_sepa
+					,case dcard_issue_place when '01' then '영업점' when '02' then '인편' end as dcard_issue_place
+					, emp_name, scrcmpn_code, achlqr_bizrno, school_code, student_num, barcode_num ,customer_no, account_num 
+          FROM card_debit_tb
+        WHERE customer_no = #{customer_no}
+       ORDER BY card_seq DESC
+	</select>
+</mapper>

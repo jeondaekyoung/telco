@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.ElecMapper">
+
+	<select id="selectElecInfoNo" resultType="String">
+		SELECT max(elec_info_no) as elec_info_no FROM elec_info_tb
+	</select>
+	
+	<insert id="insertElecInfo" parameterType="ElecInfo">
+		INSERT INTO elec_info_tb (
+							elec_info_no
+							,customer_no
+							,security_media_sepa
+							,security_media_no
+							) VALUES (
+							#{elec_info_no}
+							,#{customer_no}
+							,#{security_media_sepa}
+							,#{security_media_no} )
+	</insert>
+	
+	<insert id="insertElecInternet" parameterType="ElecInternet">
+		INSERT INTO elec_internet_tb (
+							elec_info_no
+							,open_date
+							,open_branch
+							,elec_id
+							,elec_pw
+							,elec_transfer_day
+							,elec_transfer_once 
+							,application_sepa
+							<if test="user_id != null">,user_id</if>
+							,owner_sepa
+							<if test="sub_name != null">,sub_name</if>
+							<if test="sub_num != null">, sub_num</if>
+							) VALUES (
+							#{elec_info_no}
+							,curdate()
+							,#{open_branch}
+							,#{elec_id}
+							,#{elec_pw}
+							,#{elec_transfer_day}
+							,#{elec_transfer_once}
+							,#{application_sepa}
+							<if test="user_id != null">,#{user_id}</if>
+							,#{owner_sepa}
+							<if test="sub_name != null">,#{sub_name}</if>
+							<if test="sub_num != null">,#{sub_num}</if>
+							 )
+	</insert>
+	
+	<insert id="insertElecPhone" parameterType="ElecPhone">
+		INSERT INTO elec_phone_tb (
+							elec_info_no
+							,open_date
+							,open_branch
+							,elec_pw
+							,elec_transfer_day
+							,elec_transfer_once
+							,application_sepa
+							<if test="user_id != null">,user_id</if>
+							,owner_sepa
+							<if test="sub_name != null">,sub_name</if>
+							<if test="sub_num != null">, sub_num</if>
+							 ) VALUES (
+							#{elec_info_no}
+							,curdate()
+							,#{open_branch}
+							,#{elec_pw}
+							,#{elec_transfer_day}
+							,#{elec_transfer_once}
+							,#{application_sepa}
+							<if test="user_id != null">,#{user_id}</if>
+							,#{owner_sepa}
+							<if test="sub_name != null">,#{sub_name}</if>
+							<if test="sub_num != null">,#{sub_num}</if>
+							)
+	</insert>
+	
+	<select id="selectElecsByCustomerNo" parameterType="String" resultType="SqlSearchElecs">
+		select elec_internet_no as elec_no, '인터넷뱅킹' as elec_sepa, ifnull(i.elec_id,'') as elec_id, if(i.using_or = 'Y', '사용중', '해지') as state
+     			 ,date_format(ifnull(i.cancel_date, ifnull(i.final_change_date, i.open_date)), '%Y-%m-%d') as change_date
+      			,ifnull(case info.security_media_sepa when '01' then '보안카드' when '02' then 'OTP카드' end, '') as security_media_sepa 
+      			,ifnull(info.security_media_no, '') as security_media_no 
+		 from elec_internet_tb i, elec_info_tb info
+	   where i.elec_info_no = info.elec_info_no
+		   and info.customer_no = #{customer_no}
+		union
+		select elec_phone_no as elec_no, '폰뱅킹' as elec_sepa, '' as elec_id, if(p.using_or = 'Y', '사용중', '해지') as state
+      			,date_format(ifnull(p.cancel_date, ifnull(p.final_change_date, p.open_date)), '%Y-%m-%d') as change_date
+      			,ifnull(case info.security_media_sepa when '01' then '보안카드' when '02' then 'OTP카드' end, '') as security_media_sepa 
+      			,ifnull(info.security_media_no, '') as security_media_no
+		 from elec_phone_tb p, elec_info_tb info
+	   where p.elec_info_no = info.elec_info_no
+		   and info.customer_no = #{customer_no}
+	</select>
+	
+	<select id="selectElecInfo" parameterType="String" resultType="ElecInfo">
+		SELECT elec_info_no, customer_no, security_media_sepa, security_media_no 
+		  FROM elec_info_tb
+		WHERE customer_no = #{customer_no}
+	</select>
+	
+	<update id="updateElecInfo" parameterType="ElecInfo">
+		UPDATE elec_info_tb
+		      SET security_media_sepa = #{security_media_sepa}
+		      		,security_media_no = #{security_media_no} 
+		WHERE elec_info_no = #{elec_info_no}
+	</update>
+	
+	<select id="selectElecInternet" parameterType="String" resultType="ElecInternet">
+		SELECT elec_internet_no, elec_info_no, open_date, open_branch, cancel_date, cancel_branch, final_change_date, elec_id, elec_pw, elec_transfer_day, elec_transfer_once, application_sepa, user_id, owner_sepa, sub_name, sub_num, using_or 
+		  FROM elec_internet_tb
+		WHERE elec_internet_no = #{elec_internet_no}
+	</select>
+	
+	<update id="cancelElecInternet" parameterType="ElecInternet">
+		UPDATE elec_internet_tb
+			  SET cancel_date = curdate()
+			  		,cancel_branch = #{cancel_branch}
+			  		,elec_id = null
+			  		,elec_pw = null
+			  		,elec_transfer_day = null
+			  		,elec_transfer_once = null
+			  		,application_sepa = null
+			  		,user_id = null
+			  		,owner_sepa = null
+			  		,sub_name = null
+			  		,sub_num = null
+			  		,using_or = #{using_or}
+		WHERE elec_internet_no = #{elec_internet_no}
+	</update>
+	
+	<select id="selectElecPhone" parameterType="String" resultType="ElecPhone">
+		SELECT elec_phone_no, elec_info_no, open_date, open_branch, cancel_date, cancel_branch, final_change_date, elec_pw, elec_transfer_day, elec_transfer_once, application_sepa, owner_sepa, sub_name, sub_num, using_or 
+          FROM elec_phone_tb
+        WHERE elec_phone_no = #{elec_phone_no}
+	</select>
+	
+	<update id="cancelElecPhone" parameterType="ElecPhone">
+		UPDATE elec_phone_tb
+		      SET cancel_date = curdate()
+		            ,cancel_branch = #{cancel_branch}
+		            ,elec_pw = null
+		            ,elec_transfer_day = null
+		            ,elec_transfer_once = null
+		            ,application_sepa = null
+		            ,owner_sepa = null
+		            ,sub_name = null
+		            ,sub_num = null
+		            ,using_or = #{using_or} 
+        WHERE elec_phone_no = #{elec_phone_no}
+	</update>
+	
+	<select id="selectElecId" parameterType="String" resultType="Integer">
+		SELECT count(elec_internet_no) as count_elec_id 
+	      FROM elec_internet_tb
+	    WHERE elec_id = #{elec_id}
+	</select>
+	
+	<select id="selectElecInternetByElecInfoNo" parameterType="String" resultType="ElecInternet">
+	SELECT elec_internet_no, elec_info_no, open_date, open_branch, cancel_date, cancel_branch, final_change_date, elec_id, elec_pw, elec_transfer_day, elec_transfer_once, application_sepa, user_id, owner_sepa, sub_name, sub_num, using_or 
+      FROM elec_internet_tb
+    WHERE elec_info_no = #{elec_info_no} 	
+	</select>
+	
+	<update id="updateElecInternet" parameterType="ElecInternet">
+		UPDATE elec_internet_tb
+		      SET  cancel_date = null
+		      		,cancel_branch = null
+		      		,final_change_date = curdate()
+		      		,elec_id = #{elec_id}
+		      		,elec_pw = #{elec_pw}
+		      		,elec_transfer_day = #{elec_transfer_day}
+		      		,elec_transfer_once = #{elec_transfer_once}
+		      		,using_or = 'Y' 
+		WHERE elec_internet_no = #{elec_internet_no}
+	</update>
+	
+	<select id="selectElecPhoneByElecInfoNo" parameterType="String" resultType="ElecPhone">
+		SELECT elec_phone_no, elec_info_no, open_date, open_branch, cancel_date, cancel_branch, final_change_date, elec_pw, elec_transfer_day, elec_transfer_once, application_sepa, owner_sepa, sub_name, sub_num, using_or 
+		  FROM elec_phone_tb
+		WHERE elec_info_no = #{elec_info_no}
+	</select>
+	
+	<update id="updateElecPhone" parameterType="ElecPhone">
+		UPDATE elec_phone_tb 
+			  SET cancel_date  = null
+					,cancel_branch = null
+					,final_change_date = curdate()
+			  		,elec_pw = #{elec_pw}
+			  		,elec_transfer_day = #{elec_transfer_day}
+			  		,elec_transfer_once = #{elec_transfer_once}
+			  		,using_or = 'Y' 
+         WHERE elec_phone_no = #{elec_phone_no}
+	</update>
+	
+	<select id="selectFindElec" parameterType="SqlFindElec" resultType="SqlFindElec">
+	select info.elec_info_no 
+     		 ,if(info.security_media_sepa is null, '미교부', '교부') as security_media_sepa 
+    		 ,i.open_date ,ifnull(i.open_branch, '') as open_branch
+      		 ,i.cancel_date ,ifnull(i.cancel_branch, '') as cancel_branch
+      		 ,ifnull(i.elec_transfer_day, '') as elec_transfer_day ,ifnull(i.elec_transfer_once, '') as elec_transfer_once
+      		 ,ifnull(i.sub_num, '') as sub_num ,if(i.owner_sepa = '01', '본인', '대리인') as owner_sepa 
+      		 <if test="elec_sepa == '인터넷뱅킹'">,ifnull(i.user_id, '') as user_id</if>
+  	from elec_info_tb info left join <if test="elec_sepa == '인터넷뱅킹'">elec_internet_tb i</if><if test="elec_sepa == '폰뱅킹'">elec_phone_tb i</if>
+ 	   on info.elec_info_no = i.elec_info_no
+  where info.elec_info_no = (select info.elec_info_no 
+					                          from elec_info_tb info
+					                         where info.customer_no = #{customer_no})
+	</select>
+	
+</mapper>

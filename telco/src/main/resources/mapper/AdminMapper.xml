@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.AdminMapper">
+
+	<parameterMap type="Map" id="searchUsers-terms">
+		<parameter property="startDay"/>
+		<parameter property="endDay"/>
+	</parameterMap>
+
+	<insert id="registerUser" parameterType="User">
+		INSERT INTO users_tb (user_id, user_pw, user_name, grade, affiliation, ban, num, user_sepa, join_date, school_no)
+        VALUES (#{user_id}, #{user_pw}, #{user_name}, #{grade}, #{affiliation}, #{ban}, #{num}, #{user_sepa}, curdate(), 
+                      (SELECT school_no FROM school_tb WHERE school_name = #{school_name}))
+	</insert>
+	
+	<select id="searchUsersMap" parameterType="Map" resultType="SqlSearchUsers">
+	<![CDATA[
+		SELECT u.user_id, u.user_name, u.user_sepa, a.user_id, a.access_date, a.ip, a.device 
+		  FROM users_tb u, access_tb a 
+        WHERE u.user_id = a.user_id
+            AND   #{startDay} <= date(a.access_date)
+            AND   date(a.access_date) <= #{endDay}
+        ORDER BY a.access_date DESC;
+    ]]>
+	</select>
+	
+	<select id="searchUsersName" parameterType="String" resultType="SqlSearchUsers">
+		SELECT u.user_id, u.user_name, u.user_sepa, a.user_id, a.access_date, a.ip, a.device FROM users_tb u, access_tb a 
+    	WHERE u.user_id = a.user_id
+            AND  u.user_name LIKE CONCAT('%',#{usersName}, '%')
+        ORDER BY a.access_date DESC
+	</select>
+	
+	<select id="infoUser" parameterType="String" resultType="User">
+		SELECT user_id, user_name, grade, affiliation, ban, num, user_sepa, join_date, expiration_date FROM users_tb
+		WHERE user_id = #{user_id}
+	</select>
+	
+	<select id="infoAccess" parameterType="String" resultType="Access">
+		SELECT date(access_date) as access_date, ip, device FROM access_tb
+		WHERE user_id = #{user_id}
+		ORDER BY access_date DESC
+	</select>
+	
+	<update id="pwInit" parameterType="Map" >
+		UPDATE users_tb SET user_pw = #{user_pw}
+		 WHERE user_id = #{user_id}
+	</update>
+	
+	<update id="updateUser" parameterType="User">
+		UPDATE users_tb SET user_name = #{user_name}, grade = #{grade}, affiliation = #{affiliation}, ban = #{ban},
+		                                 num = #{num}, user_sepa = #{user_sepa}, join_date = #{join_date}, expiration_date = #{expiration_date}
+		WHERE user_id = #{user_id}
+	</update>
+	
+</mapper>

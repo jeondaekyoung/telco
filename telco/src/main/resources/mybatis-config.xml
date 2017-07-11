@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  
+<configuration>
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="telco.naree.domain.School" alias="School"/>
+		<typeAlias type="telco.naree.domain.User" alias="User"/>
+		<typeAlias type="telco.naree.domain.Access" alias="Access"/>
+		<typeAlias type="telco.naree.domain.SqlSearchUsers" alias="SqlSearchUsers"/>
+		<typeAlias type="telco.naree.domain.JusoBuilding" alias="JusoBuilding" />
+		<typeAlias type="telco.naree.domain.CustomerBasics" alias="CustomerBasics" />
+		<typeAlias type="telco.naree.domain.HouseCompany" alias="HouseCompany" />
+		<typeAlias type="telco.naree.domain.OfficeWorkspace" alias="OfficeWorkspace" />
+		<typeAlias type="telco.naree.domain.ThirdContact" alias="ThirdContact" />
+		<typeAlias type="telco.naree.domain.CustomerAdd" alias="CustomerAdd" />
+		<typeAlias type="telco.naree.domain.AntiMoneyLaundering" alias="AntiMoneyLaundering" />
+		
+		<typeAlias type="telco.naree.domain.BankbookInfo" alias="BankbookInfo"/>
+		<typeAlias type="telco.naree.domain.BankbookTrade" alias="BankbookTrade"/>
+		<typeAlias type="telco.naree.domain.BankbookTradeDetail" alias="BankbookTradeDetail"/>
+		<typeAlias type="telco.naree.domain.EtcAntiMoneyLaundering" alias="EtcAntiMoney"/>
+		<typeAlias type="telco.naree.domain.RcpmnyDetail" alias="RcpmnyDetail"/>
+		<typeAlias type="telco.naree.domain.RcpmnyCheck" alias="RcpmnyCheck"/>
+		<typeAlias type="telco.naree.domain.PymntCheck" alias="PymntCheck"/>
+		<typeAlias type="telco.naree.domain.PymntBankTrade" alias="PymntBankTrade"/>
+		<typeAlias type="telco.naree.domain.BankbookReissue" alias="BankbookReissue"/>
+		
+		<typeAlias type="telco.naree.domain.CheckNo" alias="CheckNo"/>
+		<typeAlias type="telco.naree.domain.CheckPublish" alias="CheckPublish"/>
+		<typeAlias type="telco.naree.domain.CheckPublishDetail" alias="CheckPublishDetail"/>
+		<typeAlias type="telco.naree.domain.CheckPayment" alias="CheckPayment"/>
+		<typeAlias type="telco.naree.domain.CheckPaymentBankTrade" alias="CheckPaymentBankTrade"/>
+		<typeAlias type="telco.naree.domain.CheckPaymentCome" alias="CheckPaymentCome"/>
+		<typeAlias type="telco.naree.domain.CheckPaymentPublish" alias="CheckPaymentPublish"/>
+		
+		<typeAlias type="telco.naree.domain.ElecInfo" alias="ElecInfo"/>
+		<typeAlias type="telco.naree.domain.ElecInternet" alias="ElecInternet"/>
+		<typeAlias type="telco.naree.domain.ElecPhone" alias="ElecPhone"/>
+		<typeAlias type="telco.naree.domain.ElecBankbook" alias="ElecBankbook"/>
+		<typeAlias type="telco.naree.domain.SqlSearchElecs" alias="SqlSearchElecs"/>
+		<typeAlias type="telco.naree.domain.SqlFindElec" alias="SqlFindElec"/>
+		
+		<typeAlias type="telco.naree.domain.Atcng" alias="Atcng"/>
+		
+		<typeAlias type="telco.naree.domain.BankbookReissue" alias="BankbookReissue"/>
+		
+		<typeAlias type="telco.naree.domain.CardDebit" alias="CardDebit"/>
+	</typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/telco_db"/>
+        <property name="username" value="telco"/>
+        <property name="password" value="telco123"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  
+  <mappers>
+  	
+    <mapper resource="mapper/UserMapper.xml"/>
+    <mapper resource="mapper/CommonMapper.xml"/>
+    <mapper resource="mapper/AdminMapper.xml"/>
+    <mapper resource="mapper/CustomerMapper.xml"/>
+    
+    <mapper resource="mapper/BankbookMapper.xml"/>
+    <mapper resource="mapper/CheckMapper.xml"/>
+    
+    <mapper resource="mapper/ElecMapper.xml"/>
+    
+    <mapper resource="mapper/AutomaticMapper.xml"/>
+    <mapper resource="mapper/CardMapper.xml"/>
+  </mappers>
+  
+</configuration>

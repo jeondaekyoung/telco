@@ -1,0 +1,87 @@
+* {font-family: '돋움', 'Dotum'; list-style: none; color:#000; margin: 0; padding: 0; font-size:12px;}
+body {width:100%; height: 100%; overflow: auto;}
+
+
+/* 테이블의 초기화 */
+table {border-collapse:collapse; border-spacing:0; font-size:12px; font-style:normal;}
+caption {position: absolute; top:-9999px; font-size:0px; line-height:0px; width:0px; height:0px;}/* 장애인을 위한 caption 숨기기 */
+
+/* 테이블의 스타일 적용 */
+table {text-align:center; width:100%;}
+table th {background:#e9f4f2; border:1px solid #a9a9a9; font-size: 12px; font-weight: normal}
+table td {border:1px solid #a9a9a9; padding:0;}
+
+
+/* 버튼 */
+.btn_both {overflow:hidden;clear:both;width:100%}
+.btn_both .fl {float:left}
+.btn_both .fr {float:right}
+
+a.btn_big {display:inline-block;padding-right:4px;background:url(http://static.naver.com/groupware/2010/bg_btn_default.gif) no-repeat 100% 0;font-family:'돋움',dotum;font-size:12px;color:#444;line-height:26px;word-spacing:-1px;text-decoration:none !important;white-space:nowrap}
+
+a.btn_big span,a.btn_big strong {display:block;padding:1px 8px 0 12px;background:url(http://static.naver.com/groupware/2010/bg_btn_default.gif) no-repeat}
+
+.btn0002 {width: 102px; margin: 0 auto 20px;}
+.btn0010 {width: 50px; margin: 0 auto;}
+
+span.msg {display: inline-block; padding: 15px 0; font-size: 12px; color:red;}
+
+
+/* pop-0002 */
+.qualify-info01 table {text-align:center; width:100%;}
+.qualify-info01 table th {background:#e9f4f2; padding:7px 0; border:1px solid #a9a9a9; font-size: 12px; font-weight: normal}
+.qualify-info01 table td {border:1px solid #a9a9a9; padding:7px 0;}
+.srch {width:100%; height:30px; background: #b4d3d6; padding: 5px 0;}
+.srch .srch-inner { overflow: hidden; margin: 0 auto;}
+.srch .srch-inner ul {float:left; margin: 0 20px 0 5px}
+.srch .srch-inner ul li {position: relative; line-height: 30px; text-align: center;}
+.srch .srch-inner ul li span {margin:0 4px; font-weight: bold; vertical-align: middle;}
+.srch .srch-inner ul li input[type="text"] { vertical-align: middle;}
+.srch .srch-inner ul li select { vertical-align: middle;}
+.srch .srch-inner ul li img {vertical-align: middle; margin-bottom: 0px;}
+
+
+/* pop-0002-1 */
+.pop-0002, .pop-0002-2 {width: 100%; background: #e9f4f2; padding: 2px 0; margin-bottom: 20px; border-bottom: 1px solid #ccc; font-size: 11px; text-align: center;}
+.pop-0002-inner img {float: left;}
+.pop-0002-inner1 {background: #fff; padding: 5px; margin: 5px; border: 1px solid #ccc;}
+.pop-0002-inner1 th,
+.pop-0002-2-inner1 th {background:#b4d3d6; height: 35px;}
+.pop-0002-inner1 tr td,
+.pop-0002-2-inner1 tr td {padding: 8px 0;}
+.pop-0002-inner2 {height: 50px; margin-top: 30px; margin-left: 5px;}
+.pop-0002-inner2 ul {padding-bottom: 5px; overflow: hidden;}
+.pop-0002-inner2 ul li {float: left; margin-left: 5px; vertical-align: middle}
+.pop-0002-inner2 ul li span {display: block; background: #b4d3d6; padding: 0px 10px; vertical-align: middle;line-height: 22px;}
+.pop-0002-inner2 ul li input {width: 100px; margin: 0; vertical-align: middle;}
+
+
+/* pop-0002-2 */
+.pop-0002-2-inner1 {background: #fff; padding: 5px; margin-bottom: 5px; border: 1px solid #ccc;}
+
+
+/* pop_0010_2 */
+.pop-0010 {padding: 5px}
+.pop-0010-inner1 {width:100%; padding: 5px 0; margin-bottom: 10px; background: #e9f4f2; border: 1px solid #ccc}
+.pop-0010-inner1 table {width:99%; margin-left: 2px;}
+.pop-0010-inner1 table td,
+.pop-0010-inner1 table th {padding: 2px; border: 4px solid #e9f4f2;}
+.pop-0010-inner1 table th {background: #b4d3d6;}
+.pop-0010-inner1 table input {width: 100%; vertical-align: middle}
+.pop-0010-inner1 table select {width: 98%; vertical-align: middle;}
+.pop-0010-inner1 table button {width: 98%; vertical-align: middle;}
+
+.pop-0010-inner2 table td, .pop-0010-inner2 table th {padding: 4px 0;}
+
+
+.pop-cgid {width: 400px; background: #fff;}
+.pop-cgid ul li{background: #005599; padding: 10px; color: #fff;}
+.pop-cgid-inner {overflow: hidden; width: 100%}
+.pop-cgid-inner .pop-input{ width: 97%; background: #b4d3d6; padding: 20px 0px 0px; margin: 5px; border: 1px solid #ccc}
+.pop-cgid-inner .pop-input ul li{ display:inline-block; width: 95%; background: none; color: #000; text-align: center;}
+.pop-cgid-inner .pop-input ul li span {color: #005599;}
+.pop-cgid-inner .pop-input ul li a{ background: #005599; padding: 4px 10px; margin-left: 5px; color:#fff; border-radius: 5px;behavior : url(css/PIE-1.0.0/PIE.htc); text-decoration: none; font-size: 11px}
+.pop-cgid-inner .pop-input ul li a:hover{ text-decoration: underline}
+.pop-cgid-inner .pop-noti{width: 97%; background: #e9f4f2; padding: 10px 0; margin: 5px; border: 1px solid #ccc;}
+.pop-cgid-inner .pop-noti p{display: inline-block; width: 100%; text-align: center; font-size: 11px;}
+.btn3801-pop{width: 50px; margin: 8px auto;}

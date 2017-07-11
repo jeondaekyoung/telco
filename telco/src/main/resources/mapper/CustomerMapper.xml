@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="telco.naree.dao.mapper.CustomerMapper">
+
+	<select id="selectCustomerNo" resultType="String">
+		SELECT max(customer_no) FROM customer_basics_tb
+	</select>
+	
+	<select id="selectCustomerBasics" parameterType="String" resultType="CustomerBasics">
+		SELECT customer_no, realname_num, realname_num_sepa, customer_qualf_sepa, customer_qualf_name
+					, customer_name, customer_name_eng, passport_num, nationality_sepa, postal_sepa, contact_sepa, bizrno, enterprise_name 
+		  FROM customer_basics_tb
+		WHERE realname_num = #{realname_num}
+	</select>
+	
+	<select id="selectHouseCompany" parameterType="String" resultType="HouseCompany">
+		SELECT customer_no, zip_code, address_before, address_after, residence_sepa, town_name, apart_name
+					, dong, ho, address_eng, phone1, phone2, phone3, extension, cellphone1, cellphone2, cellphone3
+					, fax1, fax2, fax3, email_id, email_domain, homepage, foreign_address, foreign_phone 
+		  FROM house_company_tb
+		WHERE customer_no = #{customer_no}
+	</select>
+	
+	<select id="selectOfficeWorkspace" parameterType="String" resultType="OfficeWorkspace">
+		SELECT customer_no, zip_code, address_before, address_after, moving_in_sepa, town_name, apart_name
+					, dong, ho, phone1, phone2, phone3, extension, fax1, fax2, fax3, address_eng, job, company_name
+					, department_name, position_name, join_date 
+		  FROM office_workspace_tb
+		WHERE customer_no = #{customer_no}
+	</select>
+	
+	<select id="selectThirdContact" parameterType="String" resultType="ThirdContact">
+		SELECT customer_no, zip_code, address_before, address_after, residence_sepa, town_name, apart_name
+					, dong, ho, phone1, phone2, phone3, extension, fax1, fax2, fax3, email_id, email_domain
+					, homepage, address_eng, foreign_address, foreign_phone 
+		  FROM third_contact_tb
+		WHERE customer_no = #{customer_no}
+	</select>
+	
+	<select id="selectCustomerAdd" parameterType="String" resultType="CustomerAdd">
+		SELECT customer_no, birthday_sepa, birthday, marriage_sepa, marriage_date, gender_sepa, household_sepa
+					, spouse_brthdy_year, children_sepa, children1_brthdy_year, children2_brthdy_year, children3_brthdy_year
+					, car_sepa, annual_income, dual_income_or, pay_day, house_have_sepa, householder_sepa, living_sepa, living_pyeong 
+		  FROM customer_add_tb
+		WHERE customer_no = #{customer_no}
+	</select>
+	
+	<select id="selectAntiMoneyLaundering" parameterType="String" resultType="AntiMoneyLaundering">
+		SELECT customer_no, identification_type, verify_sepa, job_sepa 
+		  FROM anti_money_laundering_tb
+	    WHERE customer_no = #{customer_no} 
+	</select>
+	
+	
+	<insert id="insertCustomerBasics" parameterType="CustomerBasics">
+		INSERT INTO customer_basics_tb (
+						   customer_no
+						  ,realname_num
+						  ,realname_num_sepa
+						  ,customer_qualf_sepa
+						  ,customer_qualf_name
+						  ,customer_name
+						  ,customer_name_eng
+						  ,passport_num
+						  ,nationality_sepa
+						  ,postal_sepa
+						  ,contact_sepa
+						  ,bizrno
+						  ,enterprise_name ) VALUES (
+						  #{customer_no}
+						  ,#{realname_num}
+						  ,#{realname_num_sepa}
+						  ,#{customer_qualf_sepa}
+						  ,#{customer_qualf_name}
+						  ,#{customer_name}
+						  ,#{customer_name_eng}
+						  ,#{passport_num}
+						  ,#{nationality_sepa}
+						  ,#{postal_sepa}
+						  ,#{contact_sepa}
+						  ,#{bizrno}
+						  ,#{enterprise_name} )
+	</insert>
+	
+	<insert id="insertHouseCompany" parameterType="HouseCompany">
+		INSERT INTO house_company_tb (
+							customer_no
+							,zip_code ,address_before 	,address_after
+							,residence_sepa
+							,town_name
+							,apart_name
+							,dong ,ho
+							,address_eng
+							,phone1 ,phone2 ,phone3
+							,extension
+							,cellphone1,cellphone2,cellphone3
+							,fax1	,fax2	,fax3
+							,email_id ,email_domain
+							,homepage
+							,foreign_address
+							,foreign_phone ) VALUES (
+							#{customer_no}
+							,#{zip_code}
+							,#{address_before} ,#{address_after}
+							,#{residence_sepa}
+							,#{town_name}
+							,#{apart_name}
+							,#{dong} ,#{ho}
+							,#{address_eng}
+							,#{phone1},#{phone2},#{phone3}
+							,#{extension}
+							,#{cellphone1},#{cellphone2},#{cellphone3}
+							,#{fax1},#{fax2},#{fax3}
+							,#{email_id} ,#{email_domain}
+							,#{homepage}
+							,#{foreign_address}
+							,#{foreign_phone} )
+	</insert>
+	
+	<insert id="insertOfficeWorkspace" parameterType="OfficeWorkspace">
+		INSERT INTO office_workspace_tb (
+							customer_no
+							,zip_code
+							,address_before ,address_after
+							,moving_in_sepa
+							,town_name
+							,apart_name
+							,dong ,ho
+							,phone1 ,phone2 ,phone3
+							,extension
+							,fax1 ,fax2 ,fax3
+							,address_eng
+							,job
+							,company_name
+							,department_name
+							,position_name
+							,join_date ) VALUES (
+							#{customer_no}
+							,#{zip_code}
+							,#{address_before} ,#{address_after}
+							,#{moving_in_sepa}
+							,#{town_name}
+							,#{apart_name}
+							,#{dong} ,#{ho}
+							,#{phone1} ,#{phone2} ,#{phone3}
+							,#{extension}
+							,#{fax1} ,#{fax2} ,#{fax3}
+							,#{address_eng}
+							,#{job}
+							,#{company_name}
+							,#{department_name}
+							,#{position_name}
+							,#{join_date} )
+	</insert>
+	
+	<insert id="insertThirdContact" parameterType="ThirdContact">
+		INSERT INTO third_contact_tb (
+							customer_no
+							,zip_code
+							,address_before ,address_after
+							,residence_sepa
+							,town_name
+							,apart_name
+							,dong ,ho
+							,phone1 ,phone2 ,phone3
+							,extension
+							,fax1 ,fax2 ,fax3
+							,email_id ,email_domain
+							,homepage
+							,address_eng
+							,foreign_address
+							,foreign_phone  ) VALUES (
+							#{customer_no}
+							,#{zip_code}
+							,#{address_before} ,#{address_after}
+							,#{residence_sepa}
+							,#{town_name}
+							,#{apart_name}
+							,#{dong} ,#{ho}
+							,#{phone1} ,#{phone2} ,#{phone3}
+							,#{extension}
+							,#{fax1} ,#{fax2} ,#{fax3}
+							,#{email_id} ,#{email_domain}
+							,#{homepage}
+							,#{address_eng}
+							,#{foreign_address}
+							,#{foreign_phone} )
+	</insert>
+	
+	<insert id="insertCustomerAdd" parameterType="CustomerAdd">
+		INSERT INTO customer_add_tb (
+							customer_no
+							,birthday_sepa
+							,birthday
+							,marriage_sepa
+							,marriage_date
+							,gender_sepa
+							,household_sepa
+							,spouse_brthdy_year
+							,children_sepa
+							,children1_brthdy_year
+							,children2_brthdy_year
+							,children3_brthdy_year
+							,car_sepa
+							,annual_income
+							,dual_income_or
+							,pay_day
+							,house_have_sepa
+							,householder_sepa
+							,living_sepa
+							,living_pyeong ) VALUES (
+							#{customer_no}
+							,#{birthday_sepa}
+							,#{birthday}
+							,#{marriage_sepa}
+							,#{marriage_date}
+							,#{gender_sepa}
+							,#{household_sepa}
+							,#{spouse_brthdy_year}
+							,#{children_sepa}
+							,#{children1_brthdy_year}
+							,#{children2_brthdy_year}
+							,#{children3_brthdy_year}
+							,#{car_sepa}
+							,#{annual_income}
+							,#{dual_income_or}
+							,#{pay_day}
+							,#{house_have_sepa}
+							,#{householder_sepa}
+							,#{living_sepa}
+							,#{living_pyeong} )
+	</insert>
+	
+	<insert id="insertAntiMoney" parameterType="AntiMoneyLaundering">
+		INSERT INTO anti_money_laundering_tb (
+							customer_no
+							,identification_type
+							,verify_sepa
+							,job_sepa ) VALUES (
+							#{customer_no}
+							,#{identification_type}
+							,#{verify_sepa}
+							,#{job_sepa}   )
+	</insert>
+	
+	<update id="updateCustomerBasics" parameterType="CustomerBasics">
+		UPDATE customer_basics_tb SET 
+					realname_num = #{realname_num}
+					,realname_num_sepa = #{realname_num_sepa}
+					,customer_qualf_sepa = #{customer_qualf_sepa}
+					,customer_qualf_name = #{customer_qualf_name}
+					,customer_name = #{customer_name}
+					,customer_name_eng = #{customer_name_eng}
+					,passport_num = #{passport_num}
+					,nationality_sepa = #{nationality_sepa}
+					,postal_sepa = #{postal_sepa}
+					,contact_sepa = #{contact_sepa}
+					,bizrno = #{bizrno}
+					,enterprise_name = #{enterprise_name}
+	     WHERE customer_no = #{customer_no}
+	</update>
+	
+	<update id="updateHouseCompany" parameterType="HouseCompany">
+		UPDATE house_company_tb SET
+					zip_code = #{zip_code}
+					,address_before = #{address_before}
+					,address_after = #{address_after}
+					,residence_sepa = #{residence_sepa}
+					,town_name = #{town_name}
+					,apart_name = #{apart_name}
+					,dong = #{dong} ,ho = #{ho}
+					,address_eng = #{address_eng}
+					,phone1 = #{phone1} ,phone2 = #{phone2} ,phone3 = #{phone3}
+					,extension = #{extension}
+					,cellphone1 = #{cellphone1} ,cellphone2 = #{cellphone2} ,cellphone3 = #{cellphone3}
+					,fax1 = #{fax1} ,fax2 = #{fax2} ,fax3 = #{fax3}
+					,email_id = #{email_id} ,email_domain = #{email_domain}
+					,homepage = #{homepage}
+					,foreign_address = #{foreign_address} ,foreign_phone = #{foreign_phone}
+	    WHERE customer_no = #{customer_no}
+	</update>
+	
+	<update id="updateOfficeWorkspace" parameterType="OfficeWorkspace">
+		UPDATE office_workspace_tb SET 
+					zip_code = #{zip_code}
+					,address_before = #{address_before}
+					,address_after = #{address_after}
+					,moving_in_sepa = #{moving_in_sepa}
+					,town_name = #{town_name}
+					,apart_name = #{apart_name}
+					,dong = #{dong} ,ho = #{ho}
+					,phone1 = #{phone1} ,phone2 = #{phone2} ,phone3 = #{phone3}
+					,extension = #{extension}
+					,fax1 = #{fax1} ,fax2 = #{fax2} ,fax3 = #{fax3}
+					,address_eng = #{address_eng}
+					,job = #{job}
+					,company_name = #{company_name}
+					,department_name = #{department_name}
+					,position_name = #{position_name}
+					,join_date = #{join_date}
+		 WHERE customer_no = #{customer_no}
+	</update>
+	
+	<update id="updateThirdContact" parameterType="ThirdContact">
+		UPDATE third_contact_tb SET 
+					zip_code = #{zip_code}
+					,address_before = #{address_before}
+					,address_after = #{address_after}
+					,residence_sepa = #{residence_sepa}
+					,town_name = #{town_name}
+					,apart_name = #{apart_name}
+					,dong = #{dong} ,ho = #{ho}
+					,phone1 = #{phone1} ,phone2 = #{phone2} ,phone3 = #{phone3}
+					,extension = #{extension}
+					,fax1 = #{fax1} ,fax2 = #{fax2} ,fax3 = #{fax3}
+					,email_id = #{email_id} ,email_domain = #{email_domain}
+					,homepage = #{homepage}
+					,address_eng = #{address_eng}
+					,foreign_address = #{foreign_address} ,foreign_phone = #{foreign_phone}
+		 WHERE customer_no = #{customer_no}
+	</update>
+	
+	<update id="updateCustomerAdd" parameterType="CustomerAdd">
+		UPDATE customer_add_tb SET
+					birthday_sepa = #{birthday_sepa}
+					,birthday = #{birthday}
+					,marriage_sepa = #{marriage_sepa}
+					,marriage_date = #{marriage_date}
+					,gender_sepa = #{gender_sepa}
+					,household_sepa = #{household_sepa}
+					,spouse_brthdy_year = #{spouse_brthdy_year}
+					,children_sepa = #{children_sepa}
+					,children1_brthdy_year = #{children1_brthdy_year} ,children2_brthdy_year = #{children2_brthdy_year} ,children3_brthdy_year = #{children3_brthdy_year}
+					,car_sepa = #{car_sepa}
+					,annual_income = #{annual_income}
+					,dual_income_or = #{dual_income_or}
+					,pay_day = #{pay_day}
+					,house_have_sepa = #{house_have_sepa}
+					,householder_sepa = #{householder_sepa}
+					,living_sepa = #{living_sepa}
+					,living_pyeong = #{living_pyeong}
+		 WHERE customer_no = #{customer_no}	
+	</update>
+	
+	<update id="updateAntiMoney" parameterType="AntiMoneyLaundering">
+		UPDATE anti_money_laundering_tb SET
+					identification_type = #{identification_type}
+					,verify_sepa = #{verify_sepa}
+					,job_sepa = #{job_sepa}
+		 WHERE customer_no = #{customer_no}
+	</update>
+	
+	<select id="selectBankbookInfoByAccountNum" parameterType="String" resultType="BankbookInfo">
+		SELECT account_num, certificate_num, finance_sepa, item_name, bankbook_publish_sepa, balance, management_point, bankbook_publish_num, signet_sepa, using_or, open_date, cancel_date, cancel_message, cancel_why_sepa, cancel_summary, customer_no
+		  FROM bankbook_info_tb
+		WHERE account_num = #{account_num}
+		    AND using_or = 'Y'
+	</select>
+	
+	<select id="selectCustomerBasicsByNo" parameterType="String" resultType="CustomerBasics">
+		SELECT customer_no, realname_num, realname_num_sepa, customer_qualf_sepa, customer_qualf_name, customer_name
+		  FROM customer_basics_tb
+		WHERE customer_no = #{customer_no}
+	</select>
+	
+	<select id="selectBankbookTradeByAccountNum" parameterType="String" resultType="BankbookTrade">
+		SELECT trade_no, account_num, trade_datetime, trade_sepa, currency_code, trade_amount, trade_balance, 
+					IFNULL(summary, "") as summary ,IFNULL(client_name, "") as client_name ,management_point
+		  FROM bankbook_trade_tb
+		WHERE account_num = #{account_num}
+		ORDER BY trade_no DESC
+	</select>
+	
+	<select id="seeRealnameNum" parameterType="CustomerBasics" resultType="Integer">
+		SELECT count(customer_no) as customer_no
+		  FROM customer_basics_tb
+		WHERE realname_num_sepa = #{realname_num_sepa}
+		    AND realname_num = #{realname_num}
+	</select>
+	
+	<select id="selectBankbookInfoByCustomerNo" parameterType="String" resultType="BankbookInfo">
+		SELECT case info.finance_sepa when "05" then "보통예금" when "07" then "저축예금" end as finance_sepa
+					, info.item_name, info.account_num, info.open_date, info.balance, info.management_point
+		  FROM bankbook_info_tb info
+		WHERE info.customer_no = #{customer_no}
+	</select>
+	
+</mapper>
