@@ -1,4 +1,8 @@
-
+if( window.location.host =='localhost:8080'){
+	  var rootPath = window.location.protocol + '//' + window.location.host+'/telco';  
+  }
+  else
+  var rootPath = window.location.protocol + '//' + window.location.host;
 
 
 $(document).ready(function(){
@@ -23,6 +27,6 @@ var checkValue = function(){
 	}
 };
 
-var agree = function(rootPath){
+var agree = function(){
 	location.href=rootPath + "/views/user/agree.jsp";
 };

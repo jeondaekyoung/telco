@@ -30,7 +30,7 @@
         <div class="text btn">
             <!-- <a href="main_test.html"><input type="button" value="로그인"></a> -->
             <input type="button" value="로그인" id="login" >
-            <input type="button" value="회원가입" onclick="agree('${ctx }');">
+            <input type="button" value="회원가입" onclick="agree();">
         </div>
         </form>
     </div>
