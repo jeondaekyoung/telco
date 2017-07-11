@@ -9,7 +9,12 @@
 <link href="${ctx }/resources/css/search.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" >
-var rootPath = window.location.protocol + '//' +window.location.host + '/telco';
+if( window.location.host =='localhost:8080'){
+	  var rootPath = window.location.protocol + '//' + window.location.host+'/telco';  
+}
+else
+var rootPath = window.location.protocol + '//' + window.location.host;
+
 
 $(document).ready(function(){
 	

@@ -1,4 +1,9 @@
-var rootPath = window.location.protocol + '//' +window.location.host + '/telco';
+if( window.location.host =='localhost:8080'){
+	  var rootPath = window.location.protocol + '//' + window.location.host+'/telco';  
+  }
+  else
+  var rootPath = window.location.protocol + '//' + window.location.host;
+
 
 
 
