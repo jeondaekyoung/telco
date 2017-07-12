@@ -88,7 +88,7 @@
       
 		//결과 팝업화면
 		$('#resultPopup').avgrund({
-			height: 200,
+			height: 260,
 			holderClass: 'custom',
 			closeByEscape: false,
 			closeByDocument: false,
@@ -287,6 +287,7 @@ var modifyAntiMoney = function(resultData){
 	});
 	
 	//팝업실행
+	$("#resultPopup").show();
 	$("#resultPopup").trigger('click');
 };
 
