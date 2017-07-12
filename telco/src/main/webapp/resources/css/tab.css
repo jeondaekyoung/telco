@@ -93,7 +93,7 @@
 .tableAdmin th{border:1px solid #fff!important; background:#eee; padding:10px 0}
 .tableAdmin td{border: 1px solid #ccc!important; text-align: center!important; height: 20px}
 
-.mybtn2 {background: #3FB4B5!important; padding:5px!important; color:#fff!important; border-radius: 3px;behavior : url(css/PIE-1.0.0/PIE.htc); font-size: 12px; vertical-align:middle}
+.mybtn2 {background: #3FB4B5!important; padding:5px!important; color:#fff!important; border-radius: 3px;behavior : url(css/PIE-1.0.0/PIE.htc); font-size: 12px; vertical-align:middle; display: inline-block; margin-bottom: 5px}
 .mybtn3 {background: #25313E!important; padding:5px 8px!important; color:#fff!important; border-radius: 3px;behavior : url(css/PIE-1.0.0/PIE.htc); font-size: 12px; vertical-align:middle}
 
 .posiRel {position: relative}
@@ -196,15 +196,11 @@
 .tab_list table tbody{ width: 100%; min-width: 320px; display: block; overflow: hidden}
 .tab_list table tr{ width: 100%; min-width: 320px; display: block; overflow: hidden}
 .tab_list table tr th {display: block; width: 30%; float: left}
-.tab_list table tr td {display: block; width: 60%; float: left; padding: 5px 0}
+.tab_list table tr td {display: block; width: 60%; float: left; padding: 0}
 .tab_list table tr td input {width: 28%!important}
 .tab_list table tr td select {width: 28%!important}
 .tab_list table tr td IMG{ }
-    
-
-    
-    
-    
+   
     
 .tab_list3{width: 100%; min-width: 320px;}
 .tab_list3 ul{width: 100%; min-width: 320px}
@@ -213,7 +209,7 @@
 .tab_list3 ul:first-child>li{width: 16.6%}
 .tab_list3 li a{border:1px solid #ddd;border-bottom-color:#ccc;background:#eee;display: inline-block;width: 100%;text-align: center}
 .tab_list3 li a span{display:inline-block;padding:6px 0px;letter-spacing:-1px;4font-size: 0.9em}
-.tab_list3 li li{height:200px; overflow-y: scroll}
+.tab_list3 li li{height:216px; overflow-y: scroll}
 
 .tab_list3 table{ display: block; position: relative; width: 100%;}
 .tab_list3 table span{background: #b4d3d6; width: 30%; padding: 6px 15px; margin-right: 6px;}
@@ -224,7 +220,28 @@
 .tab_list3 table tr th {display: block; width: 100%;}
 .tab_list3 table tr td {display: block; width: 100%; padding: 5px 0}
 
-    
-    
+
+/* admin_info */
+
+.wd48 {width:100%}
+.tabfr {padding-left: 0; margin-left: 0; border-left: 0; margin-top:15px}
+.space1 {display: inline-block;}
+.space2 {display: inline-block;}
+.tabfr2 input {margin-bottom: 3px}
+
+#modifyUserForm .wd30 {width:100%; padding:0 5px}
+#modifyUserForm .wd30 span {width:25%}
+#modifyUserForm .wd30 select,
+#modifyUserForm .wd30 input {width:68%}
+#modifyUserForm .dashed {border:none;}
+#modifyUserForm .tabfr {margin-left:0}
+
+.tabbtn {text-align: center; margin-bottom:20px;}
+.tabbtn .mybtn{margin:5px}
+.tabbtn ul {display:inline}
+.tabbtn ul li {display:inline-block}
+
+.tabfr2 span{display:inline-block; text-align:center; background:#b4d3d6; padding:5px; margin-bottom:3px;}
+}    
 }
 /* //UI Object */ 

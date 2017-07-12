@@ -14,6 +14,7 @@
 	<link href="${ctx }/resources/css/media.css" type="text/css" rel="stylesheet">
     <link href="${ctx }/resources/css/tab.css" type="text/css" rel="stylesheet">
   <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="${ctx }/resources/js/pop.js?ver=1.2"></script>
   <script type="text/javascript" src="${ctx }/resources/vjs/customer/0009.js"></script>
 </head>
 

@@ -61,20 +61,24 @@
                 <div class="srch-inner-0004">
                     
                     <ul>
-                    	<li>계좌번호 <input type="text" id="account_num" style="background:#ffffcc;"></li>
+                    	<li>계좌번호</li>
+                    	<li><input type="text" id="account_num" style="background:#ffffcc;"></li>
                         <li><img src="${ctx }/resources/image/icon/search.png" alt="조회버튼" id="findBankbookPay" style="cursor: pointer;"></li>
                         <li><img src="${ctx }/resources/image/icon/ic.png" alt="계좌검색버튼"></li>
                     </ul>
                 	<ul>
-                        <li>예금주 <input type="text" id="customer_name" size="10"  style="background:#ffffcc;" readonly="readonly"></li></ul>
+                        <li>예금주</li>
+                    	<li><input type="text" id="customer_name" size="10"  style="background:#ffffcc;" readonly="readonly"></li></ul>
                     <ul>
-                        <li>해지구분
+                        <li>해지구분</li>
+                    	<li>
                             <select  title="해지구분" id="cancel_message" >
                                 <option value="00" selected>00: 일반해지</option>
                             </select>
                         </li></ul>
                     <ul>
-                        <li><span class="note1 pointer">(*)통장발행번호</span> <input type="text" size="10" style="background:#e5e5e5;" readonly="readonly"></li></ul>
+                        <li><span class="note1 pointer">(*)통장발행번호</span></li>
+                    	<li><input type="text" size="10" style="background:#e5e5e5;" readonly="readonly"></li></ul>
                     
                     <div class="comment2 posi62">
                         <div class="close pointer"><img src="${ctx }/resources/image/icon/close.png" alt="닫기" ></div>

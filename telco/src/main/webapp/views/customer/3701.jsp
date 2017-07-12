@@ -13,6 +13,7 @@
 	<link href="${ctx }/resources/css/common.css" type="text/css" rel="stylesheet">
 	<link href="${ctx }/resources/css/media.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
+    <script src="${ctx }/resources/js/pop.js?ver=0.2" type="text/javascript"></script>
     <script type="text/javascript" src="${ctx }/resources/vjs/customer/3701.js"></script>
 </head>
 

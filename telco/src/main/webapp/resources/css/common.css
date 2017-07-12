@@ -13,7 +13,7 @@
   src: local('☺'), url('../font/NanumGothicBold.woff') format('woff'), url('../font/NanumGothicBold.ttf') format('truetype'); 
 }
 
-* { font-family: '돋움', 'Dotum'; list-style: none; color:#555; margin: 0; padding: 0; font-size:11px}
+* { font-family: 'ngeot', '돋움', 'Dotum'; list-style: none; color:#555; margin: 0; padding: 0; font-size:11px}
 a { text-decoration: none; cursor: pointer;}
 li { font-size: 12px;}
 input, select { padding-top: 0px; vertical-align: middle;}
@@ -25,33 +25,32 @@ th{font-weight: normal;}
 img{border-style: none}
 
 body { width: 100%; min-width: 1140px; height: 100%; overflow-y: scroll; background: #FFF; color: #666;}
-html {
-	background: url(http://subtlepatterns.com/patterns/dark_dotted.png) repeat #222;
-}
+html { background: url(http://subtlepatterns.com/patterns/dark_dotted.png) repeat #222;}
 #header {position: relative; height: 60px; border-bottom: 1px solid #e0e0e0; z-index: 222}
-
 
 /* 상단 글로벌메뉴 */
 .gnb {position: relative; width:1140px; height: 100%; margin:0 auto; line-height: 26px;}
-.gnb h1 {float:left; width: 150px; height: 60px;}
+.gnb h1 {float:left; width: 165px; height: 60px;}
 .gnb h1 a img{border: 0 none;}
-.gnb .nav_wrap{overflow: hidden; padding-bottom: 5px;}
-.gnb .gnb_ul { float: left; margin-top: 5px; margin-left: 18px;}
-.gnb .gnb_ul li {float: left; width: 120px;  background: url("../image/bg/icon_bar.gif") no-repeat right center; font-family: 'ngeot'; font-size: 20px; font-weight: bold; text-align: center; padding: 12px 0}
+.gnb .nav_wrap {float:left; overflow: hidden;}
+.gnb .gnb_ul {float: left; margin-left: 18px;}
+.gnb .gnb_ul li {float: left; width: 120px;  background: url("../image/bg/icon_bar.gif") no-repeat right center; font-family: 'ngeot'; font-size: 20px; font-weight: bold; text-align: center; padding: 0}
 .gnb .gnb_ul li:first-child {margin-left: 0; margin-right: 1px}
 .gnb .gnb_ul li.last {background: none;}
-.gnb .gnb_ul li a {display:inline-block; width:100%; font-family: 'ngeot'; font-size: 20px; font-weight: bold; text-align: center; padding: 6px 0}
-.gnb .gnb_ul li a:hover{color:#1E81A1; border-bottom: 5px solid #1E81A1; padding: 6px 0}
+.gnb .gnb_ul li a {display:inline-block; width:100%; font-family: 'ngeot'; font-size: 20px; font-weight: bold; text-align: center; padding: 15px 0}
+.gnb .gnb_ul li a:hover{color:#1E81A1; border-bottom: 5px solid #1E81A1;}
 .log{overflow: hidden;}
 .log ul {margin-left:10px;}
 .log ul li {float: left; margin: 18px 5px 0;}
-
+/* 모바일 gnb */
+.gnb .m_nav_wrap {display:none}
+.gnb .burger {display:none}
 
 /* 상단 서브메뉴 */
 .gnb .sub_nav { display: none; position: absolute; top: 60px; left: 0px; padding-left: 150px; width:980px; background: #fff; opacity:; border-top: 1px solid #e0e0e0; border-bottom: 10px solid #1E81A1; z-index: 99999;}
 .gnb .sub_nav ul{ float: left; width: 120px; min-height: 430px; padding: 12px 0 0; background: #f1f1f1 url('../image/bg/icon_bar.gif') repeat-y left}
 .gnb .sub_nav ul:hover{ background: #fff url('../image/bg/icon_bar.gif') repeat-y left}
-.gnb .sub_nav ul:first-child{ margin-left: 18px;}
+.gnb .sub_nav ul:first-child{ margin-left: 32px;}
 .gnb .sub_nav ul li{ text-align: center;}
 .gnb .sub_nav ul li:hover { font-weight: bold}
 .gnb .sub_nav ul li a{ font-family: 'ngeot'}

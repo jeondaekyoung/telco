@@ -16,7 +16,7 @@
 	<link href="${ctx }/resources/css/avgrund.css" type="text/css" rel="stylesheet">
 	
 	<script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
-    <script src="${ctx }/resources/js/pop.js" type="text/javascript"></script> 
+    <script src="${ctx }/resources/js/pop.js?ver=0.2" type="text/javascript"></script> 
     <script src="${ctx }/resources/js/jquery.avgrund.js"></script>
     <script type="text/javascript" src="${ctx }/resources/vjs/electronic/3801.js"></script>
 

@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <meta http-equiv="content-type" content="text/html; charset=utf-8" >
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <link href="${ctx }/resources/css/common.css" type="text/css" rel="stylesheet">
 <link href="${ctx }/resources/css/media.css" type="text/css" rel="stylesheet">
-<link href="${ctx }/resources/css/tab.css" type="text/css" rel="stylesheet">
+<link href="${ctx }/resources/css/tab.css?ver=0.2" type="text/css" rel="stylesheet">
 <link href="${ctx }/resources/css/jquery-ui.css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="${ctx }/resources/js/pop.js"></script>
@@ -182,8 +183,8 @@
                  
                  <table class="tableAdmin">
                      <colgroup>
-                         <col style="width:100px">
-                         <col style="width:200px">
+                         <col style="width:25%">
+                         <col style="width:50%">
                          <col style="width:25%">
                          <col>
                      </colgroup>

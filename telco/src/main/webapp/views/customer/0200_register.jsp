@@ -11,7 +11,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" >
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<link href="${ctx }/resources/css/common.css" type="text/css" rel="stylesheet">
-	<link href="${ctx }/resources/css/media.css" type="text/css" rel="stylesheet">
+	<link href="${ctx }/resources/css/media.css?ver=1.3" type="text/css" rel="stylesheet">
 	<link href="${ctx }/resources/css/tab.css" type="text/css" rel="stylesheet">
 	<link href="${ctx }/resources/css/study.css" type="text/css" rel="stylesheet">
 	<link href="${ctx }/resources/css/avgrund.css" type="text/css" rel="stylesheet">
@@ -19,7 +19,7 @@
 	
 <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script type="text/javascript" src="${ctx }/resources/js/pop.js"></script>
+<script type="text/javascript" src="${ctx }/resources/js/pop.js?ver=1.2"></script>
 <script type="text/javascript" src="${ctx }/resources/js/jquery.avgrund.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -726,13 +726,19 @@ $(function() {
 											</tr>
 											<tr>
 		                                        <th>전화번호</th>
-		                                        <td><input type="text" name="phone1" id="tab1_phone1" class="isEssential" style="width:25%;" maxlength="3" >-<input type="text" name="phone2" id="tab1_phone2" class="isEssential" style="width:30%;" maxlength="4" >-<input type="text" name="phone3" id="tab1_phone3" class="isEssential" style="width:30%;" maxlength="4" ></td>
+		                                        <td><input type="text" name="phone1" id="tab1_phone1" class="isEssential" style="width:30%;" maxlength="3" >
+		                                        <input type="text" name="phone2" id="tab1_phone2" class="isEssential" style="width:30%;" maxlength="4" >
+		                                        <input type="text" name="phone3" id="tab1_phone3" class="isEssential" style="width:30%;" maxlength="4" ></td>
 		                                        <th>내선</th>
 		                                        <td><input type="text" name="extension" id="tab1_extension" style="width:100px" maxlength="3"></td>
 		                                        <th>휴대전화</th>
-		                                        <td><input type="text" name="cellphone1" id="tab1_cellphone1" style="background: #ffffcc;width:25%" maxlength="3">-<input type="text" name="cellphone2" id="tab1_cellphone2" style="background: #ffffcc;width:30%" maxlength="4">-<input type="text" name="cellphone3" id="tab1_cellphone3" style="background: #ffffcc;width:30%" maxlength="4"></td>
+		                                        <td><input type="text" name="cellphone1" id="tab1_cellphone1" style="background: #ffffcc;width:30%" maxlength="3">
+		                                        <input type="text" name="cellphone2" id="tab1_cellphone2" style="background: #ffffcc;width:30%" maxlength="4">
+		                                        <input type="text" name="cellphone3" id="tab1_cellphone3" style="background: #ffffcc;width:30%" maxlength="4"></td>
 		                                        <th>팩스번호</th>
-		                                        <td><input type="text" name="fax1" id="tab1_fax1" style="width:25%" maxlength="3">-<input type="text" name="fax2" id="tab1_fax2" style="width:29%" maxlength="4">-<input type="text" name="fax3" id="tab1_fax3" style="width:30%" maxlength="4"></td>
+		                                        <td><input type="text" name="fax1" id="tab1_fax1" style="width:28%" maxlength="3">
+		                                        <input type="text" name="fax2" id="tab1_fax2" style="width:30%" maxlength="4">
+		                                        <input type="text" name="fax3" id="tab1_fax3" style="width:30%" maxlength="4"></td>
 		                                    </tr>
 											<tr>
 												<th>이메일주소</th>
@@ -810,11 +816,15 @@ $(function() {
 											</tr>
 											<tr>
                                                 <th>전화번호</th>
-                                                <td><input type="text" name="phone1" id="tab2_phone1" style="width:25%" maxlength="3">-<input type="text" name="phone2" id="tab2_phone2" style="width:30%" maxlength="4">-<input type="text" name="phone3" id="tab2_phone3" style="width:30%" maxlength="4"></td>
+                                                <td><input type="text" name="phone1" id="tab2_phone1" style="width:30%" maxlength="3">
+                                                <input type="text" name="phone2" id="tab2_phone2" style="width:30%" maxlength="4">
+                                                <input type="text" name="phone3" id="tab2_phone3" style="width:30%" maxlength="4"></td>
                                                 <th>내선</th>
                                                 <td><input type="text" name="extension" id="tab2_extension" style="width:100px" maxlength="3"></td>
                                                 <th>팩스번호</th>
-                                                <td><input type="text" name="fax1" id="tab2_fax1" style="width:25%" maxlength="3">-<input type="text" name="fax2" id="tab2_fax2" style="width:30%" maxlength="4">-<input type="text" name="fax3" id="tab2_fax3" style="width:30%" maxlength="4"></td>
+                                                <td><input type="text" name="fax1" id="tab2_fax1" style="width:30%" maxlength="3">
+                                                <input type="text" name="fax2" id="tab2_fax2" style="width:30%" maxlength="4">
+                                                <input type="text" name="fax3" id="tab2_fax3" style="width:30%" maxlength="4"></td>
                                             </tr>
 											<tr>
 												<th>직업</th>
@@ -901,11 +911,15 @@ $(function() {
 											</tr>
 											<tr>
                                                 <th>전화번호</th>
-                                                <td><input type="text" name="phone1" id="tab3_phone1" style="width:25%" maxlength="3">-<input type="text" name="phone2" id="tab3_phone2" style="width:30%" maxlength="4">-<input type="text" name="phone3" id="tab3_phone3" style="width:30%" maxlength="4"></td>
+                                                <td><input type="text" name="phone1" id="tab3_phone1" style="width:30%" maxlength="3">
+                                                <input type="text" name="phone2" id="tab3_phone2" style="width:30%" maxlength="4">
+                                                <input type="text" name="phone3" id="tab3_phone3" style="width:30%" maxlength="4"></td>
                                                 <th>내선</th>
                                                 <td><input type="text" name="extension" id="tab3_extension" style="width:100px" maxlength="3"></td>
                                                 <th>팩스번호</th>
-                                                <td><input type="text" name="fax1" id="tab3_fax1" style="width:25%" maxlength="3">-<input type="text" name="fax2" id="tab3_fax2" style="width:30%" maxlength="4">-<input type="text" name="fax3" id="tab3_fax3" style="width:30%" maxlength="4"></td>
+                                                <td><input type="text" name="fax1" id="tab3_fax1" style="width:30%" maxlength="3">
+                                                <input type="text" name="fax2" id="tab3_fax2" style="width:30%" maxlength="4">
+                                                <input type="text" name="fax3" id="tab3_fax3" style="width:30%" maxlength="4"></td>
                                             </tr>
 											<tr>
 												<th>이메일주소</th>

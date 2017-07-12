@@ -8,6 +8,7 @@
 <title>[0200] 고객 기본정보 관리[040100000]</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes" >
 <link href="${ctx }/resources/css/common.css" type="text/css" rel="stylesheet">
 <link href="${ctx }/resources/css/media.css" type="text/css" rel="stylesheet">
@@ -37,14 +38,14 @@
 				<ul>
 				<li>
 					<form action="${ctx }/admin/searchUsers.do" id="searchUsersForm" >
-					<div class="search">
+					<div class="search">조회방법
                          <select id="searchTerms" name="searchTerms">
                              <option value="searchDay">접속일로 조회</option>
                              <option value="searchName">성명으로 조회</option>
                          </select>
                          <span class="space1">조회기간
-                          <input type="text" name="startDay" id="startDay" class="datepicker1" data-date-format="yyyy-mm-dd">~
-                          <input type="text" name="endDay" id="endDay" class="datepicker2" data-date-format="yyyy-mm-dd">
+                          <input type="text" name="startDay" id="startDay" class="datepicker1" placeholder="시작일" data-date-format="yyyy-mm-dd">~
+                          <input type="text" name="endDay" id="endDay" class="datepicker2" placeholder="종료일" data-date-format="yyyy-mm-dd">
                   		</span>
                          <span class="space2" >성명
                          	<input type="text" name="usersName" id="usersName">

@@ -8,8 +8,9 @@
     <title>로그인</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-	<link href="${ctx }/resources/css/login.css" type="text/css" rel="stylesheet">
+	<link href="${ctx }/resources/css/login.css?ver=0.2" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="${ctx }/resources/vjs/user/login.js"></script>
 </head>

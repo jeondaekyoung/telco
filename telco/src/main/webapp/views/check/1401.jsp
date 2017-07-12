@@ -11,10 +11,11 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<link href="${ctx }/resources/css/common.css" type="text/css" rel="stylesheet">
-	<link href="${ctx }/resources/css/media.css" type="text/css" rel="stylesheet">
+	<link href="${ctx }/resources/css/media.css?ver=0.2" type="text/css" rel="stylesheet">
 	<link href="${ctx }/resources/css/avgrund.css" type="text/css" rel="stylesheet">
 	
     <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="${ctx }/resources/js/pop.js?ver=1.2"></script>
     <script type="text/javascript" src="${ctx }/resources/js/jquery.avgrund.js"></script>
     <script type="text/javascript" src="${ctx }/resources/vjs/check/1401.js"></script>
 

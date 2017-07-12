@@ -16,6 +16,7 @@
 <link rel='stylesheet' href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css'>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script> 
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="${ctx }/resources/js/pop.js?ver=1.2"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $(".gnb_ul").mouseenter(function(){
@@ -439,7 +440,7 @@ $(function() {
 				
                 <h4>고객정보</h4>
                 <ul style="background:#E8F3F1; border:1px solid #C7C7C7; padding:5px">
-                <li>
+                <li class="custom_table_0231">
                     <table style="border:none">
                         <caption>자택주소정보</caption>
                         <colgroup><!-- 수정 colgroup  -->
@@ -488,10 +489,14 @@ $(function() {
                             </tr>
                             <tr>
                         <th>전화번호</th>
-                        <td ><input type="text" name="db0200" id="자택_전화번호_1" class="isEssential" style="width:25%;" maxlength="3" >-<input type="text" name="db0200" id="자택_전화번호_2" class="isEssential" style="width:25%;" maxlength="4" >-<input type="text" name="db0200" id="자택_전화번호_3" class="isEssential" style="width:25%;" maxlength="4" ></td>
+                        <td ><input type="text" name="db0200" id="자택_전화번호_1" class="isEssential" style="width:25%;" maxlength="3" >
+                        <input type="text" name="db0200" id="자택_전화번호_2" class="isEssential" style="width:25%;" maxlength="4" >
+                        <input type="text" name="db0200" id="자택_전화번호_3" class="isEssential" style="width:25%;" maxlength="4" ></td>
                         
                         <th>휴대전화</th>
-                        <td><input type="text" name="db0200" id="자택_휴대전화_1" style="width:25%" maxlength="3">-<input type="text" name="db0200" id="자택_휴대전화_1" style="width:25%" maxlength="4">-<input type="text" name="db0200" id="자택_휴대전화_1" style="width:25%" maxlength="4"></td>
+                        <td><input type="text" name="db0200" id="자택_휴대전화_1" style="width:25%" maxlength="3">
+                        <input type="text" name="db0200" id="자택_휴대전화_1" style="width:25%" maxlength="4">
+                        <input type="text" name="db0200" id="자택_휴대전화_1" style="width:25%" maxlength="4"></td>
                         
                     </tr>
                             <tr>
@@ -526,7 +531,7 @@ $(function() {
 				
                 <h4 style="margin-top:25px">직장 / 사업장 정보</h4>
                 <ul style="background:#E8F3F1; border:1px solid #C7C7C7; padding:5px; margin-bottom:25px;">
-                    <li>	
+                    <li class="custom_table_0231">	
                         <table style="border:none">
                             <caption>직장 주소정보</caption>
                             <colgroup>
@@ -550,11 +555,15 @@ $(function() {
                                
                                 <tr><!-- 수정 tr -->
                                     <th>전화번호</th>
-                                    <td><input type="text" name="db0200" id="직장_전화번호_1" style="width:25%" maxlength="3">-<input type="text" name="db0200" id="직장_전화번호_2" style="width:25%" maxlength="4">-<input type="text" name="db0200" id="직장_전화번호_3" style="width:25%" maxlength="4"></td>
+                                    <td><input type="text" name="db0200" id="직장_전화번호_1" style="width:25%" maxlength="3">
+										<input type="text" name="db0200" id="직장_전화번호_2" style="width:25%" maxlength="4">
+										<input type="text" name="db0200" id="직장_전화번호_3" style="width:25%" maxlength="4"></td>
                                     <th>내선</th>
                                     <td><input type="text" name="db0200" id="직장_내선" style="width:30px" maxlength="3"></td>
                                     <th>팩스번호</th>
-                                    <td><input type="text" name="db0200" id="직장_팩스번호_1" style="width:25%" maxlength="3">-<input type="text" name="db0200" id="직장_팩스번호_1" style="width:25%" maxlength="4">-<input type="text" name="db0200" id="직장_팩스번호_3" style="width:25%" maxlength="4"></td>
+                                    <td><input type="text" name="db0200" id="직장_팩스번호_1" style="width:25%" maxlength="3">
+                                    	<input type="text" name="db0200" id="직장_팩스번호_1" style="width:25%" maxlength="4">
+                                    	<input type="text" name="db0200" id="직장_팩스번호_3" style="width:25%" maxlength="4"></td>
                                 </tr><!-- 수정 tr -->
                                 <tr>
                                     <th>직업</th>

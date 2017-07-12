@@ -1,3 +1,31 @@
+/* 모바일 메뉴 스크립트 */
+$(document).ready(function () {
+	$('div.burger').click(function(){
+		$(this).toggleClass('open');
+		$('.m_nav_wrap').toggle();
+		$('div.x').toggleClass('rotate45'); 
+        $('div.z').toggleClass('rotate135'); 
+	});
+	
+	$('.bigmenu01').click(function(){
+		$('.bigmenu01 ul').slideToggle();
+	});
+	$('.bigmenu02').click(function(){
+		$('.bigmenu02 ul').slideToggle();
+	});
+	$('.bigmenu03').click(function(){
+		$('.bigmenu03 ul').slideToggle();
+	});
+	$('.bigmenu04').click(function(){
+		$('.bigmenu04 ul').slideToggle();
+	});
+	$('.bigmenu05').click(function(){
+		$('.bigmenu05 ul').slideToggle();
+	});
+	$('.bigmenu06').click(function(){
+		$('.bigmenu06 ul').slideToggle();
+	});
+});
 /* 레이어팝업 스크립트 */
 $(document).ready(function () {
 	//이용자등록탭 - 비밀번호 초기화

@@ -1,12 +1,8 @@
 @CHARSET "utf-8";
 
-
 @media all and (max-width:736px) {
 
-
 /* reset.css - 브라우저 스타일 초기화 - 장영석 수정*/
-
-
 /* 모든 요소 공간 0, 서체 크기 100%, 세로정렬 baseline, 배경색 투명 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -78,18 +74,18 @@ a {text-decoration:none; color:#000;}
     
     
     
-* { font-family: '돋움', 'Dotum'; list-style: none; color:#000; margin: 0; padding: 0;}
+* { font-family: 'ngeot', '돋움', 'Dotum'; list-style: none; color:#000; margin: 0; padding: 0;}
 a { text-decoration: none; cursor: pointer;}
 li { font-size: 12px;}
 input, select { padding-top: 0px; vertical-align: middle;}
-input[type="text"], input[type="password"] {padding:5px 0}
-select {height:22px}
+input[type="text"], input[type="password"] {padding:6px 0}
+select {height:26px}
 th{font-weight: normal;}
 img{border-style: none}
 
 body { width: 100%; min-width: 320px; overflow-y: scroll;}
 
-
+.m_hide {display:none}
 
 /* 상단 글로벌메뉴 */
 .gnb {position: relative; width:100%; height: 100%; margin:0 auto; line-height: 26px;}
@@ -105,6 +101,107 @@ body { width: 100%; min-width: 320px; overflow-y: scroll;}
 .log{overflow: hidden;}
 .log ul {margin-left:10px;}
 .log ul li {float: left; margin: 18px 5px 0;}
+/* 모바일 gnb */
+.gnb .m_nav_wrap { background:#333; position:absolute; top:0; left:0; width:100%; min-height:100vh}
+.gnb .m_nav_wrap .m_gnb_ul {padding-top: 60px}
+.gnb .m_nav_wrap .m_gnb_ul ul li {color:#fff; font-size:1.5rem; border-bottom: 1px solid #1E81A1;}
+.gnb .m_nav_wrap .m_gnb_ul ul li a {color:#fff; font-size:1.5rem; display: block; padding:10px}
+.gnb .m_nav_wrap .m_gnb_ul ul li.last {color:#fff; font-size:1.5rem}
+.gnb .m_nav_wrap .m_gnb_ul ul li ul {display: none}
+.gnb .m_nav_wrap .m_gnb_ul ul li ul li {background:#1E81A1; border-bottom:none;}
+.gnb .m_nav_wrap .m_gnb_ul ul li ul li a {color:#fff; font-size:1.25rem; display: block; padding:10px}
+
+.gnb div.burger {
+ display:block;
+ height: 30px; 
+ width: 40px;
+ position: absolute;
+ top: 6px; 
+ left: 10px;
+ cursor: pointer;
+ z-index:11
+}
+div.x,
+div.y,
+div.z {
+  position: absolute; margin: auto;
+  top: 0px; bottom: 0px;  
+  background: #333;
+  border-radius:2px;
+  -webkit-transition: all 200ms ease-out;
+     -moz-transition: all 200ms ease-out;
+      -ms-transition: all 200ms ease-out;
+       -o-transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
+}  
+div.x, div.y, div.z {
+  height: 3px;
+  width: 26px;
+  -webkit-transition: all 100ms ease-out;
+     -moz-transition: all 100ms ease-out;
+      -ms-transition: all 100ms ease-out;
+       -o-transition: all 100ms ease-out;
+          transition: all 100ms ease-out;
+}
+div.y.squize{
+  width:0;
+  -webkit-transition: all 100ms ease-out;
+     -moz-transition: all 100ms ease-out;
+      -ms-transition: all 100ms ease-out;
+       -o-transition: all 100ms ease-out;
+          transition: all 100ms ease-out;
+}
+div.y{top: 18px;}
+div.z{top: 37px;} 
+div.open div.x, div.open div.z{
+        background: #fff;
+  top:19px;
+  -webkit-transition: all 70ms ease-out;
+     -moz-transition: all 70ms ease-out;
+      -ms-transition: all 70ms ease-out;
+       -o-transition: all 70ms ease-out;
+          transition: all 70ms ease-out;
+}
+div.rotate30{  
+  -ms-transform: rotate(30deg); 
+     -webkit-transform: rotate(30deg); 
+     transform: rotate(30deg); 
+  -webkit-transition: all 70ms ease-out;
+     -moz-transition: all 70ms ease-out;
+      -ms-transition: all 70ms ease-out;
+       -o-transition: all 70ms ease-out;
+          transition: all 70ms ease-out;     
+}
+div.rotate150{
+  -ms-transform: rotate(150deg); 
+     -webkit-transform: rotate(150deg); 
+     transform: rotate(150deg); 
+  -webkit-transition: all 70ms ease-out;
+     -moz-transition: all 70ms ease-out;
+      -ms-transition: all 70ms ease-out;
+       -o-transition: all 70ms ease-out;
+          transition: all 70ms ease-out;     
+} 
+div.rotate45{
+  -ms-transform: rotate(45deg); 
+     -webkit-transform: rotate(45deg); 
+     transform: rotate(45deg); 
+  -webkit-transition: all 100ms ease-out;
+     -moz-transition: all 100ms ease-out;
+      -ms-transition: all 100ms ease-out;
+       -o-transition: all 100ms ease-out;
+          transition: all 100ms ease-out;     
+}
+div.rotate135{
+  -ms-transform: rotate(135deg); 
+     -webkit-transform: rotate(135deg); 
+     transform: rotate(135deg); 
+  -webkit-transition: all 100ms ease-out;
+     -moz-transition: all 100ms ease-out;
+      -ms-transition: all 100ms ease-out;
+       -o-transition: all 100ms ease-out;
+          transition: all 100ms ease-out;     
+ }
 
 
 /* 상단 서브메뉴 */
@@ -126,7 +223,7 @@ body { width: 100%; min-width: 320px; overflow-y: scroll;}
 
 
 #contents {width: 100%; margin: 0px;}
-#contents h3 { padding: 15px 40px; margin:42px 0 0; border-top: 1px solid #eee; font-size:1.7em}
+#contents h3 { padding: 15px 40px; margin:0; border-top: 1px solid #eee; font-size:1.7em}
 
 
 /* 테이블의 초기화 */
@@ -164,7 +261,7 @@ input[type="text"] {vertical-align: middle}
 .srch {width:100%; min-width: 320px; height: auto; overflow: hidden}
 .srch .srch-inner ul {}
 .srch .srch-inner ul li {text-align: left;}
-.srch .srch-inner ul li span {width:30%}
+.srch .srch-inner ul li span {width: 63px; display: inline-block; text-align: center;}
 .srch .srch-inner ul li input[type="text"] {width:auto}
 .srch .srch-inner ul li select {width:20%}
 
@@ -201,9 +298,9 @@ input[type="checkbox"] {vertical-align: middle; margin-right: 3px;}
 .srch-0002 .srch-inner-0002 { overflow: hidden; margin: 0 auto;}
 .srch-0002 .srch-inner-0002 ul {float:none; width: 100%; min-width: 320px; overflow:hidden}
 .srch-0002 .srch-inner-0002 ul li {}
-.srch-0002 .srch-inner-0002 ul li:first-child {width: 30%;}
+.srch-0002 .srch-inner-0002 ul li:first-child {width: 30%; margin: 2px 5px;}
 .srch-0002 .srch-inner-0002 ul li input, 
-.srch-0002 .srch-inner-0002 ul li select {width: 100%; }
+.srch-0002 .srch-inner-0002 ul li select {width: 100%; margin-top:2px}
 .srch-0002 .srch-inner-0002 ul li img {margin: 6px 1px;}
 
 h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
@@ -238,10 +335,10 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info02-inner01-0002 table tr,
 .info02-inner01-0002 table td,
 .info02-inner01-0002 table th,
-.info02-inner01-0002 table tfoot { display: block;}
+.info02-inner01-0002 table tfoot { display: block; border-top: 2px solid #e9f4f2; border-bottom: 2px solid #e9f4f2; border-left: 4px solid #e9f4f2; border-right: 3px solid #e9f4f2;}
 .info02-inner01-0002 table th { width: 30%; float: left;}
 .info02-inner01-0002 table td { width: 60%; float: left}
-.info02-inner01-0002 table input {width: 80%!important; margin: 4px 0;}
+.info02-inner01-0002 table input {width: 80%!important;}
 .info02-inner01-0002 table select {width: 80%;}
 .info02-inner01-0002 table td img {vertical-align: middle;}
 
@@ -252,11 +349,11 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info02-inner02-0002 table tr,
 .info02-inner02-0002 table td,
 .info02-inner02-0002 table th,
-.info02-inner02-0002 table tfoot { display: block}
+.info02-inner02-0002 table tfoot {display: block;border-top: 2px solid #e9f4f2; border-bottom: 2px solid #e9f4f2; border-left: 4px solid #e9f4f2; border-right: 3px solid #e9f4f2;}
 .info02-inner02-0002 table th { width: 30%; float: left; }
 .info02-inner02-0002 table td { width: 60%; float: left; }
-.info02-inner02-0002 table input {width: 80% !important; margin: 4px 0;}
-.info02-inner02-0002 table select {width: 98%; margin: 4px 0;}
+.info02-inner02-0002 table input {width: 80% !important;}
+.info02-inner02-0002 table select {width: 98%;}
 .info02-inner02-0002 table td img {vertical-align: middle;}
 
 .info03-wrap-0002 {width:923px; overflow: hidden;}
@@ -280,9 +377,9 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info01-inner1-1401{ float:left; 400px; padding: 0px; }
 .info01-inner1-1401 ul {margin-bottom: 5px; width: 500px;}
 .info01-inner1-1401 ul li {line-height: 22px;}
-.info01-inner1-1401 ul li:first-child {float:left; width: 140px; height: 22px; margin:10px 5px 0 0; background: #b4d3d6; text-align: center; line-height: 22px; }
+.info01-inner1-1401 ul li:first-child {float:left; width: 140px; height: 26px; margin:5px 5px 0 0; background: #b4d3d6; text-align: center; line-height: 26px;}
 .info01-inner1-1401 ul li input,
-.info01-inner1-1401 ul li select {width: 210; margin: 12px 0 0;}
+.info01-inner1-1401 ul li select {width: 210; margin: 5px 0 0;}
 
 .info01-inner2-1401{ padding-left: 0px;}
 .info01-inner2-1401 table {width:98%; margin-left: 0px; margin-bottom: 20px;}
@@ -330,8 +427,8 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .table0008 table th {display: block; float: left}
 .table0008 table th {width: 30% }
 .table0008 table td {width: 63% }
-.table0008 table input {margin: 3px 0}
-.table0008 table select {width: 100%; margin: 3px 0;}
+.table0008 table input {}
+.table0008 table select {width: 100%;}
 .info01-inner-0070 table img {vertical-align: middle;}
 .info01-inner-0070 div.dash { margin:10px 2 20px; padding-top: 10px; border-top: 1px dashed #aaa;}
 
@@ -380,7 +477,7 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info04-inner-3801{ overflow: hidden;}
 .srch-inner-3801 ul {float: left; width: 100%;}
 .srch-inner-3801 li {float: left; line-height: 18px;}
-.srch-inner-3801 li:first-child { padding: 2px 4px; vertical-align: middle;}
+.srch-inner-3801 li:first-child { padding: 2px 4px; vertical-align: middle; width: 50px; text-align: center;}
 .srch-inner-3801 li input {vertical-align: middle; margin-right: 5px;}
 .srch-inner-3801 li select{ margin-right: 20px;}
 
@@ -487,8 +584,8 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 /* 0004 */
 .srch-inner-0004 {overflow: hidden}
 .srch-inner-0004 ul{ float: left; width: 100%; margin-left: 0px;}
-.srch-inner-0004 li{ float: left; margin: 5px; line-height: 20px; }
-.srch-inner-0004 li:first-child {margin-left: 0;}
+.srch-inner-0004 li{ float: left; margin: 5px; line-height: 30px; }
+.srch-inner-0004 li:first-child {margin-left:0; width:78px; line-height:32px; text-align:center;}
 .srch-inner-0004 li input {margin: 4px 0;}
 
 .info01-inner-0004 {width:100%; min-width: 320px;}
@@ -497,14 +594,15 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info01-inner-0004 table tr {display: block; width: 100%; min-width: 320px;max-width: 686px;overflow: hidden}
 .info01-inner-0004 table td,
 .info01-inner-0004 table th { display: block; float: left}
-.info01-inner-0004 table th {width: 30%;margin: 0;}
+.info01-inner-0004 table th {width: 30%; height:24px; margin: 0; line-height: 24px}
+.info01-inner-0004 table th span {line-height: 24px}
 .info01-inner-0004 table td {width: 60%;margin: 0; border: none;padding: 6px 0}
 .info01-inner-0004 table input {width: 50%; vertical-align: middle; float: left}
 .info01-inner-0004 table input#customer_qualf_sepa {width:55px!important}
 .info01-inner-0004 table select {width: 49%; vertical-align: middle}
 .info01-inner-0004 table img { vertical-align: middle; float: left}
 
-.info02-wrap-0004 {width: 100%; min-width: 320px; padding:0; overflow-x: scroll;}
+.info02-wrap-0004 {width: 100vh; max-width: 100%; padding:0; overflow-x: scroll;}
 .info02-inner-0004 table {width:920px; margin: 5px; margin-bottom: 5px;}
 .info02-inner-0004 table td,
 .info02-inner-0004 table th { padding: 2px; border: 4px solid #e9f4f2;}
@@ -583,7 +681,7 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info01-inner01-0010 ul li input {width: 48%;}
 .info01-inner01-0010 ul li select {width: 50%;}
 .info01-inner01-0010 ul.sum {margin-top: 5px; border-top: 1px dashed #ccc;}
-.info01-inner01-0010 ul.sum li:first-child {width: 50%}
+.info01-inner01-0010 ul.sum li:first-child {width: 48%}
 .info01-inner01-0010 ul.count li:first-child {float:left; width: 140px; height: 22px; margin-right:5px; background: #b4d3d6; text-align: center; line-height: 22px; }
 .info01-inner01-0010 ul.count li input{vertical-align: middle}
 .info01-inner01-0010 table {width:99%; margin-top: px;}
@@ -619,9 +717,9 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info02-wrap-0010 tbody {width:100%;min-width: 320px; display: block}
 .info02-wrap-0010 tbody tr {width:100%;min-width: 320px; display: block}
 .info02-wrap-0010 table td,
-.info02-wrap-0010 table th {display: block; border: none; float: left}
-.info02-wrap-0010 table th {width: 34%}
-.info02-wrap-0010 table td {width: 60%}
+.info02-wrap-0010 table th {display:block; border:none; float:left;}
+.info02-wrap-0010 table th {width:34%; padding:6px 0}
+.info02-wrap-0010 table td {width:60%}
 
 
 /* 0003 */
@@ -641,7 +739,7 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info01-inner02-0003 table th { display: block; border: 4px solid #e9f4f2; float: left}
 .info01-inner02-0003 table th { width: 30%;}
 .info01-inner02-0003 table td { width: 64%;}
-.info01-inner02-0003 table input {width:100%; margin: 4px 0}
+.info01-inner02-0003 table input {width:100%;}
 .info01-inner02-0003 table select {width: 100%; margin: 4px 0;}
 
 
@@ -660,7 +758,7 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .srch-inner-1099 table td{ width: 65%}
 .srch-inner-1099 table td,
 .srch-inner-1099 table th { display: block; float: left}
-.srch-inner-1099 table th { width: 30%}
+.srch-inner-1099 table th { width: 30%; line-height: 2.3}
 .srch-inner-1099 table input { }
 .srch-inner-1099 table select {width: 100%; vertical-align: middle;}
 .srch-inner-1099 table img {vertical-align: middle;}
@@ -690,7 +788,7 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 
 .info01-inner-0070 table a {background: #005599; padding: 5px 10px; color:#fff; border-radius: 5px;behavior : url(css/PIE-1.0.0/PIE.htc);}
 .info01-inner-0070 table, .info02-inner-0070 table {display: block; width:100%;}
-
+.info01-inner-0070 table th {padding: 7px 0}
 .info01-inner-0070 table th, .info01-inner-0070 table td,
 .info02-inner-0070 table th, .info02-inner-0070 table td {display: block; float: left; width: 48%; border:none; margin:2px 0}
 .info01-inner-0070 table select {width:97%}
@@ -699,30 +797,18 @@ h4{width: 100%; min-width: 320px; background:#1E81A1;  font-size: 13px;  }
 .info01-wrap-0008 {overflow-y: scroll; width: 922px; height: 230px; background: #e9f4f2; margin-bottom: 25px; padding: 15px 0; border: 1px solid #ccc;}
 
 
-/* 1402 */
+/* 0231 */
+.custom_table_0231 table{ width: 100%; min-width: 320px; display: block;}
+.custom_table_0231 table tbody{ width: 100%; min-width: 320px; display: block; overflow: hidden}
+.custom_table_0231 table tr{ width: 100%; min-width: 320px; display: block; overflow: hidden}
+.custom_table_0231 table tr th {display: block; width: 30%; float: left}
+.custom_table_0231 table tr td {display: block; width: 60%; float: left; padding: 0}
+.custom_table_0231 table tr td input {width: 28%!important}
+.custom_table_0231 table tr td select {width: 28%!important}
 
+/* 1402 */
 .info01-inner01-0010 table select {width: 100%;}
 .info01-inner01-0010 table input {width: 100%;}
 .info01-inner02-0010 a { float:right; background: #005599; margin:50px 5px; padding: 5px 10px; color:#fff; font-size: 11px; border-radius: 5px; behavior : url(css/PIE-1.0.0/PIE.htc);}
 
 table.tbl1402 {margin-top: 15px;}
-
-
-
-
-/* admin_info */
-
-#modifyUserForm .wd30 {width:100%; padding:0 5px}
-#modifyUserForm .wd30 span {width:25%}
-#modifyUserForm .wd30 select,
-#modifyUserForm .wd30 input {width:70%}
-#modifyUserForm .dashed {border:none;}
-#modifyUserForm .tabfr {margin-left:0}
-
-.tabbtn {text-align: center; margin-bottom:20px}
-.tabbtn .mybtn{margin:5px}
-.tabbtn ul {display:inline}
-.tabbtn ul li {display:inline-block}
-
-.tabfr2 span{display: inline-block;  text-align: center;  background: #b4d3d6;  padding: 5px;  margin-bottom: 3px;}
-}
