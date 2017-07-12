@@ -157,6 +157,11 @@ alert("비밀번호를 입력해주세요");
 $("#bankbook_pw").focus();
 return false;
 }
+if($("#telco_trade_amount").val() == ""){
+	alert("금액을 입력해주세요");
+	$("#telco_trade_amount").focus();
+	return false;
+}
 
 
 return true;
