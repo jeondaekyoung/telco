@@ -463,7 +463,7 @@ $(function() {
                                 <th class="자택">자택 우편번호</th>
                                 <td ><!-- 수정 td -->
                                     <input type="text" id="자택/본사우편번호_1" name="db0200" style="width:80px;" >
-                                    <IMG src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('search.html','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
+                                    <IMG src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('${ctx}/views/customer/searchAddr.jsp?tab=3','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
                                     <input type="text" name="db0200" id="자택/본사우편번호_2" style="width:47%;">
                                 </td><!-- 수정 td -->
                                 <th>부속주소</th>
@@ -541,7 +541,7 @@ $(function() {
                                 <tr>
                                     <th>직장 우편번호</th>
                                     <td colspan="3"><input type="text" name="db0200" id="직장우편번호_1" style="width: 80px;" >
-                                        <img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('search.html','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
+                                        <img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('${ctx}/views/customer/searchAddr.jsp?tab=3','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
                                         <input type="text" name="db0200" id="직장우편번호_2" style="width: 47%;" >
                                     </td>
                                     <th>부속주소</th>
