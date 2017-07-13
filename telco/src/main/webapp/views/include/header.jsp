@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <div id="header">
         <div class="gnb">
             <h1><a href="${ctx }/views/main.jsp"><img src="${ctx }/resources/image/logo/h1logo.png" alt="텔코"></a></h1>

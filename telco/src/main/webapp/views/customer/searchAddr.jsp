@@ -24,6 +24,10 @@ $(document).ready(function(){
 
 var searchJuso = function(){
 	
+	if(!$("#searchWord").val()){
+		alert("검색어를 입력해주세요.");
+		return;
+	}
 	$.ajax({
 		url: rootPath + "/customer/searchAddr.do"
 		,type: "post"
@@ -82,10 +86,10 @@ var errorCallback = function(){
             
 			<div class="search">
                 <div class="searchBox">
-                    <form>
+                    <!-- <form> -->
                         <input type="text" name="searchWord" id="searchWord"/>
                         <input type="button" value="검색" onclick="searchJuso();">
-                    </form>
+                    <!-- </form> -->
                 	<span>도로명 또는 건물명(아파트)을 입력해주세요.</span>
                 </div>
 			</div>

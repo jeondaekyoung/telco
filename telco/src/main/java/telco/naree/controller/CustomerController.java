@@ -395,7 +395,7 @@ public class CustomerController {
 	@RequestMapping(value = "searchAddr.do")
 	@ResponseBody
 	public List<JusoBuilding> searchAddr(String searchWord){
-		//System.out.println("검색어 - " + searchWord);
+		System.out.println("검색어 - " + searchWord);
 		List<JusoBuilding> addrs = commonService.searchAddr(searchWord);
 		/*System.out.println(results.size());
 		for(JusoBuilding j : results){
