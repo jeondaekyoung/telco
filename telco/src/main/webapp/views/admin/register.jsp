@@ -19,6 +19,11 @@
 <script type="text/javascript">
 var searchUserIdCheck;		//이용자아이디 중복 조회 플러그
 var registerResult = "${registerResult}";	//이용자 등록행위 확인
+if( window.location.host =='localhost:8080'){
+	  var rootPath = window.location.protocol + '//' + window.location.host+'/telco';  
+}
+else
+var rootPath = window.location.protocol + '//' + window.location.host;
 
     $(document).ready(function(){
         $(".gnb_ul").mouseenter(function(){
@@ -31,7 +36,7 @@ var registerResult = "${registerResult}";	//이용자 등록행위 확인
         //아이디 중복 체크 Ajax
         $("#searchUserId").click(function(){
            $.ajax({
-        	   url :"/telco/admin/searchUserId.do",
+        	   url :rootPath+"/admin/searchUserId.do",
         	   type :"get",
         	   data : {
         		   user_id : $("#user_id").val()
