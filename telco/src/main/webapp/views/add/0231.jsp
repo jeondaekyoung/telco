@@ -307,8 +307,8 @@ $(function() {
                                     <option>04: 카드번호</option>
                                     <option>05: 여권번호</option>
                                 </select></li>
-				            <li><img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" id="검색" style="cursor:pointer">
-								<!--select title="은행거래신청서인자">
+				            <li><!--<img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" id="검색" style="cursor:pointer">
+								select title="은행거래신청서인자">
 										<option>1:은행거래신청서인자</option>
 										<option>2:은행거래신청서인자 없음</option>
 								</select-->
@@ -350,15 +350,15 @@ $(function() {
 											<option value="07">07: 납세번호</option>
 											<option value="08">08: 법인번호</option>
 										</select>
-                                        <img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" id="검색" style="cursor:pointer">
+                                        <%-- <img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" id="검색" style="cursor:pointer"> --%>
 									</td>
 									<th><span>고객자격</span></th>
 									<td colspan="3">
-										<input type="text" id="고객자격_1" name="db0200" class="isEssential" style="background: #ffffcc; width: 80px" readonly>
-										<a target="_blank" onclick="window.open('popup/pop_0200.html','고객자격코드검색','width=730, height=400, scrollbars=yes, location=no'); return false">
+										<input type="text" id="customer_qualf_sepa" name="db0200" class="isEssential" style="background: #ffffcc; width: 80px" readonly>
+										<a target="_blank" onclick="window.open('${ctx}/views/customer/pop_0200.jsp','고객자격코드검색','width=730, height=400, scrollbars=yes, location=no'); return false">
 											<img class="qualify" src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" >
 										</a>
-										<input type="text" id="고객자격_2" name="db0200" readonly style="width: 48%"></td>
+										<input type="text" id="customer_qualf_name" name="db0200" readonly style="width: 48%"></td>
 								</tr>
                                 
                                 
@@ -463,9 +463,9 @@ $(function() {
                             <tr>
                                 <th class="자택">자택 우편번호</th>
                                 <td ><!-- 수정 td -->
-                                    <input type="text" id="자택/본사우편번호_1" name="db0200" style="width:80px;" >
-                                    <IMG src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('${ctx}/views/customer/searchAddr.jsp?tab=3','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
-                                    <input type="text" name="db0200" id="자택/본사우편번호_2" style="width:47%;">
+                                    <input type="text" id="tab1_zip_code" name="db0200" style="width:80px;" >
+                                    <IMG src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('${ctx}/views/customer/searchAddr.jsp?tab=1','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
+                                    <input type="text" name="db0200" id="tab1_address_before" style="width:47%;">
                                 </td><!-- 수정 td -->
                                 <th>부속주소</th>
                                 <td><input type="text" name="db0200" id="자택_상세주소" class="isEssential" style="width: 100%;"></td>
@@ -522,13 +522,6 @@ $(function() {
                     </li>
                 </ul>
                     
-                        
-                        
-                        
-                        
-                        
-						
-				
                 <h4 style="margin-top:25px">직장 / 사업장 정보</h4>
                 <ul style="background:#E8F3F1; border:1px solid #C7C7C7; padding:5px; margin-bottom:25px;">
                     <li class="custom_table_0231">	
@@ -545,9 +538,9 @@ $(function() {
                             <tbody>
                                 <tr>
                                     <th>직장 우편번호</th>
-                                    <td colspan="3"><input type="text" name="db0200" id="직장우편번호_1" style="width: 80px;" >
-                                        <img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('${ctx}/views/customer/searchAddr.jsp?tab=3','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
-                                        <input type="text" name="db0200" id="직장우편번호_2" style="width: 47%;" >
+                                    <td colspan="3"><input type="text" name="db0200" id="tab2_zip_code" style="width: 80px;" >
+                                        <img src="${ctx }/resources/image/icon/search.gif" alt="검색버튼" onclick="window.open('${ctx}/views/customer/searchAddr.jsp?tab=2','우편번호검색','width=600, height=620, scrollbars=yes, location=no'); return false">
+                                        <input type="text" name="db0200" id="tab2_address_before" style="width: 47%;" >
                                     </td>
                                     <th>부속주소</th>
                                     <td><input type="text" name="db0200" id="직장_부속주소" style="width: 99%" ></td>
