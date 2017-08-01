@@ -8,6 +8,26 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 <link href="${ctx }/resources/css/search.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.min.js"></script>
+<style>
+#loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: none;  
+ opacity: 0.7;  
+ background-color: #fff;  
+ z-index: 99;  
+ text-align: center; } 
+  
+#loading-image {  
+ position: absolute;  
+ top: 50%;  
+ left: 50%; 
+ z-index: 100; }
+</style>
+
 <script type="text/javascript" >
 if( window.location.host =='localhost:8080'){
 	  var rootPath = window.location.protocol + '//' + window.location.host+'/telco';  
@@ -15,12 +35,6 @@ if( window.location.host =='localhost:8080'){
 else
 var rootPath = window.location.protocol + '//' + window.location.host;
 
-
-$(document).ready(function(){
-	
-	
-	
-});
 
 var searchJuso = function(){
 	
@@ -36,13 +50,25 @@ var searchJuso = function(){
 		}
 		,success: searchAddr
 		,error: errorCallback
-			
+		  ,beforeSend:function(){
+
+			  $('#loading').show();  
+			$('#searchWord').prop( "disabled", true);
+			$('#searchBtn').prop( "disabled", true);
+		    }
+		,complete: function () {
+			setTimeout( function () {$('#loading').hide()}, 1000);  
+			$('#searchWord').prop( "disabled", false);
+			$('#searchBtn').prop( "disabled", false);
+	    }
+
 	});
 };
 
 var searchAddr = function(resultData){
 	$("#jusoTable > tbody").empty();
 	//console.log(resultData);
+	
 	$.each(resultData, function(index, item){
 		var listTr = "<tr>" + "<td>" + (index+1) + "</td>"
 						+ "<td>" + item.zip_code + "</td>"
@@ -76,6 +102,8 @@ var errorCallback = function(){
 </head>
 
 <body>
+<div id="loading"><img id="loading-image" src="${ctx}/resources/image/ajax-loader.gif" alt="Loading..." /></div>
+
 	<div id="header">
 		<h1>도로명 주소 찾기</h1>
 	</div>
@@ -87,8 +115,8 @@ var errorCallback = function(){
 			<div class="search">
                 <div class="searchBox">
                     <!-- <form> -->
-                        <input type="text" name="searchWord" id="searchWord"/>
-                        <input type="button" value="검색" onclick="searchJuso();">
+                        <input type="text" name="searchWord" id="searchWord" onkeypress="if(event.keyCode==13) {searchJuso(); return false;}"/>
+                        <input type="button"  id="searchBtn" value="검색" onclick="searchJuso();">
                     <!-- </form> -->
                 	<span>도로명 또는 건물명(아파트)을 입력해주세요.</span>
                 </div>

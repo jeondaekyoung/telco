@@ -22,7 +22,7 @@
                     <ul>
                         <li><a href="${ctx }/views/customer/0200_register.jsp">고객관리</a></li>
                         <li><a href="${ctx }/views/customer/0009.jsp">거래내역조회</a></li>
-                        <li><a href="#">자금세탁방지 고객관리</a></li>
+                        <li><a href="${ctx }/views/add/0231.jsp">자금세탁방지 고객관리</a></li>
                     </ul>
                     <ul>
                         <li><a href="${ctx }/views/bankbook/0010.jsp">수신신규</a></li>
